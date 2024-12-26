@@ -947,14 +947,14 @@ public class BabysitterManagement extends javax.swing.JFrame {
 //    }
 
     /**
-     *
+     *login admin in the system by checking whether the entered username and password are correct or not
      * @param evt The event triggered by login button
      */
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         //Get data from user name and password textfiled
         String userName = txtFldUserName.getText();
-        String password = txtFldPassword.getText();
+        String password = new String(txtFldPassword.getPassword());
 
         boolean hasError = false;
 
