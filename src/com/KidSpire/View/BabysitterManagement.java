@@ -15,8 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author kiransaud
- * 23048603
+ * @author kiransaud 23048603
  */
 public class BabysitterManagement extends javax.swing.JFrame {
 
@@ -33,7 +32,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
         initComponents();
         loadLoginScreen();
         initializeLayout();
-//        initializeData();
         startProgress();
 
         babysitterList = new LinkedList<>();
@@ -195,12 +193,14 @@ public class BabysitterManagement extends javax.swing.JFrame {
             pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblWelcomeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAddBabySitter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddBabySitter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSideMenuBarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblWelcomeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         pnlSideMenuBarLayout.setVerticalGroup(
             pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -876,19 +876,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void loadScreen(String screenName) {
         cardLayout.show(getContentPane(), screenName);
     }
-//    /**
-//     * Initializes the application's data, including the student list and table.
-//     * Populates the student list with sample data for demonstration purposes.
-//     */
-
-//    private void initializeData() {
-//        babysitterList = new LinkedList<>();
-//
-//        // Registering babysitters
-//        registerBabysitters(new BabysitterModel(23456, "Garima", (short) 23, "9823456001", 3, "Hattiban", "garima@gmail.com"));
-//        registerBabysitters(new BabysitterModel(23457, "Sunaina", (short) 21, "986076545", 2, "Kamalpokhari", "sunaina@gmail.com"));
-//        registerBabysitters(new BabysitterModel(23458, "Simran", (short) 30, "9834567826", 5, "Baneshwor", "simran@gmail.com"));
-//    }
 
     /**
      * Simulates the loading progress using a SwingWorker thread. Updates a
@@ -947,7 +934,9 @@ public class BabysitterManagement extends javax.swing.JFrame {
 //    }
 
     /**
-     *login admin in the system by checking whether the entered username and password are correct or not
+     * login admin in the system by checking whether the entered username and
+     * password are correct or not
+     *
      * @param evt The event triggered by login button
      */
 
@@ -1062,6 +1051,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 txtFieldEmail, lblErrorMessageEmail, "Enter a valid email in the format: example@domain.com.",
                 errorColor, successColor, ValidationUtil.isVaildEmail(txtFieldEmail.getText())
         );
+        //if all the validate are true then create new instance of babysitter
         if (isValid) {
             // Create a BabysitterModel instance
             BabysitterModel newBabysitter = new BabysitterModel(
@@ -1089,7 +1079,14 @@ public class BabysitterManagement extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_addBtnActionPerformed
-
+    /**
+     * Handles the action event when the update button is clicked. It validates
+     * the input fields (name, contact, address, age, experience, and email),
+     * checks if a row is selected in the table, and if valid, updates the
+     * selected babysitter’s information in the list and the table.
+     *
+     * @param evt the action event triggered by the update button
+     */
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
         boolean isValid = true;
         int selectedRow = tblToDisplayBabysitterInfo.getSelectedRow();
@@ -1161,14 +1158,25 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         } catch (IndexOutOfBoundsException e) {
             showMessageBox("Invalid row is selected.", "Invalid row", JOptionPane.ERROR_MESSAGE);
-        } 
-        
-    }//GEN-LAST:event_updateBtnActionPerformed
+        }
 
+    }//GEN-LAST:event_updateBtnActionPerformed
+    /**
+     * Handles the action event when the delete button is clicked. It performs
+     * the following tasks: Makes the babysitter ID field editable. Checks if a
+     * row is selected in the table. If no row is selected, it displays a
+     * warning message. Retrieves the selected babysitter from the list and
+     * removes it from both the list and the table model. Clears the babysitter
+     * form fields. Displays a success message when the deletion is successful.
+     * Catches any potential IndexOutOfBoundsException in case of invalid row
+     * selection and shows an error message.
+     *
+     * @param evt the action event triggered by the delete button
+     */
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         txtFieldBabysitterId.setEditable(true);
         boolean isValid = true;
-            try{
+        try {
             int selectedRow = tblToDisplayBabysitterInfo.getSelectedRow();
             //Check if no row is selected
             if (selectedRow == -1) {
@@ -1180,17 +1188,25 @@ public class BabysitterManagement extends javax.swing.JFrame {
             babysitterList.remove(selectedBabysitter);
             model.removeRow(selectedRow);
             clearBabysitterForm();
-            showMessageBox("Data deleted successfully.","Deleted",JOptionPane.INFORMATION_MESSAGE);
-            }catch(IndexOutOfBoundsException e){
-                showMessageBox("Invalid row selected.","Invalid row",JOptionPane.ERROR_MESSAGE);
-            }
+            showMessageBox("Data deleted successfully.", "Deleted", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IndexOutOfBoundsException e) {
+            showMessageBox("Invalid row selected.", "Invalid row", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void mainScBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainScBtnActionPerformed
         loadScreen("MainScreen");
     }//GEN-LAST:event_mainScBtnActionPerformed
-
+    /**
+     * Handles the mouse click event on the table to load the selected
+     * babysitter's details into the form fields. It retrieves the selected row,
+     * checks if the row is valid, and populates the form with the corresponding
+     * babysitter's data. If no valid row is selected, an error message is
+     * shown.
+     *
+     * @param evt the mouse click event
+     */
     private void tblToDisplayBabysitterInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblToDisplayBabysitterInfoMouseClicked
         try {
             int selectedRow = tblToDisplayBabysitterInfo.getSelectedRow();//Get selected row index
@@ -1207,7 +1223,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 txtFieldEmail.setText(babysitterInfo.getEmail());
 
             }
-            
+
         } catch (IndexOutOfBoundsException e) {
 
             showMessageBox("Invalid row selected.", "Invalid row", JOptionPane.ERROR_MESSAGE);
