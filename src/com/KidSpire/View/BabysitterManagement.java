@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.KidSpire.View;
+package com.kidSpire.view;
 
 import com.KidSpire.model.BabysitterModel;
 import com.KidSpire.util.ValidationUtil;
@@ -14,8 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author kiransaud 23048603
+ *Class purpose
+ * @author kiransaud
+ * 23048603
  */
 public class BabysitterManagement extends javax.swing.JFrame {
 
