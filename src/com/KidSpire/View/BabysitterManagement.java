@@ -4,8 +4,8 @@
  */
 package com.kidSpire.view;
 
-import com.KidSpire.model.BabysitterModel;
-import com.KidSpire.util.ValidationUtil;
+import com.kidspire.model.BabysitterModel;
+import com.kidspire.util.ValidationUtil;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import java.awt.Color;
@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *Class purpose
+ *
  * @author kiransaud
  * 23048603
  */
@@ -51,14 +51,17 @@ public class BabysitterManagement extends javax.swing.JFrame {
         pnlAdminScreen = new javax.swing.JPanel();
         pnlMainTitle = new javax.swing.JPanel();
         lblToAddTitle = new javax.swing.JLabel();
-        lblForLogo = new javax.swing.JLabel();
         logOutBtn = new javax.swing.JButton();
+        lblLogo = new javax.swing.JLabel();
         pnlSideMenuBar = new javax.swing.JPanel();
         lblWelcomeAdmin = new javax.swing.JLabel();
         btnAddBabySitter = new javax.swing.JButton();
         lblAdmin = new javax.swing.JLabel();
+        lblInfoContact = new javax.swing.JLabel();
+        lblPhoneImage = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         adminWelcomePnl = new javax.swing.JPanel();
-        lblImageAdminSc = new javax.swing.JLabel();
+        lblOurStoryImage = new javax.swing.JLabel();
         pnlLogInScreen = new javax.swing.JPanel();
         pnlLoginDetails = new javax.swing.JPanel();
         lblLogin = new javax.swing.JLabel();
@@ -106,23 +109,25 @@ public class BabysitterManagement extends javax.swing.JFrame {
         tblToDisplayBabysitterInfo = new javax.swing.JTable();
         pnlLoadingScreen = new javax.swing.JPanel();
         pgBarSplashSc = new javax.swing.JProgressBar();
-        lblImageForLoadingSc = new javax.swing.JLabel();
+        lblBgImage = new javax.swing.JLabel();
 
-        pnlAdminScreen.setMaximumSize(new java.awt.Dimension(1000, 600));
-        pnlAdminScreen.setMinimumSize(new java.awt.Dimension(1000, 600));
-        pnlAdminScreen.setPreferredSize(new java.awt.Dimension(1000, 600));
-        pnlAdminScreen.setSize(new java.awt.Dimension(1000, 600));
+        pnlAdminScreen.setMaximumSize(new java.awt.Dimension(1000, 674));
+        pnlAdminScreen.setMinimumSize(new java.awt.Dimension(1000, 674));
+        pnlAdminScreen.setPreferredSize(new java.awt.Dimension(1000, 674));
+        pnlAdminScreen.setSize(new java.awt.Dimension(1000, 674));
 
-        pnlMainTitle.setBackground(new java.awt.Color(72, 75, 50));
+        pnlMainTitle.setBackground(new java.awt.Color(115, 150, 145));
+        pnlMainTitle.setMaximumSize(new java.awt.Dimension(1000, 126));
+        pnlMainTitle.setMinimumSize(new java.awt.Dimension(1000, 126));
+        pnlMainTitle.setPreferredSize(new java.awt.Dimension(1000, 126));
+        pnlMainTitle.setSize(new java.awt.Dimension(1000, 126));
 
         lblToAddTitle.setBackground(new java.awt.Color(255, 255, 255));
-        lblToAddTitle.setFont(new java.awt.Font("Kannada MN", 0, 24)); // NOI18N
+        lblToAddTitle.setFont(new java.awt.Font("Avenir", 1, 24)); // NOI18N
         lblToAddTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblToAddTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblToAddTitle.setText("Babysitter Management System");
         lblToAddTitle.setAlignmentX(0.5F);
-
-        lblForLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Screenshot 2024-12-08 at 21.55.21.png"))); // NOI18N
 
         logOutBtn.setBackground(new java.awt.Color(102, 102, 102));
         logOutBtn.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -135,43 +140,47 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         });
 
+        lblLogo.setFont(new java.awt.Font("Optima", 1, 24)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setText("KidSpire");
+
         javax.swing.GroupLayout pnlMainTitleLayout = new javax.swing.GroupLayout(pnlMainTitle);
         pnlMainTitle.setLayout(pnlMainTitleLayout);
         pnlMainTitleLayout.setHorizontalGroup(
             pnlMainTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainTitleLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblForLogo)
-                .addGap(182, 182, 182)
-                .addComponent(lblToAddTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblToAddTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147)
                 .addComponent(logOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(29, 29, 29))
         );
         pnlMainTitleLayout.setVerticalGroup(
             pnlMainTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainTitleLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pnlMainTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainTitleLayout.createSequentialGroup()
-                        .addComponent(lblForLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainTitleLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(pnlMainTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(logOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblToAddTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34))))
+                        .addGap(34, 34, 34)
+                        .addGroup(pnlMainTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblToAddTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlMainTitleLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(logOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        pnlSideMenuBar.setBackground(new java.awt.Color(102, 102, 102));
-        pnlSideMenuBar.setMaximumSize(new java.awt.Dimension(230, 400));
-        pnlSideMenuBar.setMinimumSize(new java.awt.Dimension(230, 400));
-        pnlSideMenuBar.setPreferredSize(new java.awt.Dimension(230, 400));
-        pnlSideMenuBar.setSize(new java.awt.Dimension(230, 400));
+        pnlSideMenuBar.setBackground(new java.awt.Color(255, 255, 255));
+        pnlSideMenuBar.setMaximumSize(new java.awt.Dimension(239, 542));
+        pnlSideMenuBar.setMinimumSize(new java.awt.Dimension(239, 542));
+        pnlSideMenuBar.setPreferredSize(new java.awt.Dimension(239, 542));
+        pnlSideMenuBar.setSize(new java.awt.Dimension(239, 542));
 
+        lblWelcomeAdmin.setBackground(new java.awt.Color(0, 0, 0));
         lblWelcomeAdmin.setFont(new java.awt.Font("Hiragino Sans GB", 0, 18)); // NOI18N
-        lblWelcomeAdmin.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcomeAdmin.setText("Welcome, Admin");
 
         btnAddBabySitter.setBackground(new java.awt.Color(173, 165, 158));
@@ -188,20 +197,36 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/IMG_6620.JPG"))); // NOI18N
         lblAdmin.setSize(new java.awt.Dimension(182, 158));
 
+        lblInfoContact.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblInfoContact.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInfoContact.setText("Contact");
+
+        lblPhoneImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PHONE.png.jpeg"))); // NOI18N
+        lblPhoneImage.setSize(new java.awt.Dimension(182, 120));
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("+977 9804563004");
+
         javax.swing.GroupLayout pnlSideMenuBarLayout = new javax.swing.GroupLayout(pnlSideMenuBar);
         pnlSideMenuBar.setLayout(pnlSideMenuBarLayout);
         pnlSideMenuBarLayout.setHorizontalGroup(
             pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddBabySitter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSideMenuBarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblWelcomeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
+            .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblPhoneImage, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                    .addComponent(lblAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddBabySitter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(5, Short.MAX_VALUE))
         );
         pnlSideMenuBarLayout.setVerticalGroup(
             pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,41 +237,44 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddBabySitter, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPhoneImage, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         adminWelcomePnl.setBackground(new java.awt.Color(242, 240, 222));
-        adminWelcomePnl.setMaximumSize(new java.awt.Dimension(749, 465));
-        adminWelcomePnl.setMinimumSize(new java.awt.Dimension(749, 465));
-        adminWelcomePnl.setPreferredSize(new java.awt.Dimension(749, 465));
-        adminWelcomePnl.setSize(new java.awt.Dimension(749, 465));
+        adminWelcomePnl.setMaximumSize(new java.awt.Dimension(749, 542));
+        adminWelcomePnl.setMinimumSize(new java.awt.Dimension(749, 542));
+        adminWelcomePnl.setPreferredSize(new java.awt.Dimension(749, 542));
+        adminWelcomePnl.setSize(new java.awt.Dimension(749, 542));
 
-        lblImageAdminSc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Screenshot 2024-12-24 at 06.33.39.png"))); // NOI18N
-        lblImageAdminSc.setSize(new java.awt.Dimension(749, 465));
+        lblOurStoryImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Baby.png"))); // NOI18N
 
         javax.swing.GroupLayout adminWelcomePnlLayout = new javax.swing.GroupLayout(adminWelcomePnl);
         adminWelcomePnl.setLayout(adminWelcomePnlLayout);
         adminWelcomePnlLayout.setHorizontalGroup(
             adminWelcomePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(adminWelcomePnlLayout.createSequentialGroup()
-                .addComponent(lblImageAdminSc, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(lblOurStoryImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         adminWelcomePnlLayout.setVerticalGroup(
             adminWelcomePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblImageAdminSc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblOurStoryImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlAdminScreenLayout = new javax.swing.GroupLayout(pnlAdminScreen);
         pnlAdminScreen.setLayout(pnlAdminScreenLayout);
         pnlAdminScreenLayout.setHorizontalGroup(
             pnlAdminScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMainTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlAdminScreenLayout.createSequentialGroup()
-                .addComponent(pnlSideMenuBar, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlSideMenuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(adminWelcomePnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(pnlMainTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlAdminScreenLayout.setVerticalGroup(
             pnlAdminScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,22 +282,22 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addComponent(pnlMainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlAdminScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSideMenuBar, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(adminWelcomePnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlSideMenuBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(adminWelcomePnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pnlLogInScreen.setBackground(new java.awt.Color(72, 75, 50));
-        pnlLogInScreen.setMaximumSize(new java.awt.Dimension(1000, 600));
-        pnlLogInScreen.setMinimumSize(new java.awt.Dimension(1000, 600));
-        pnlLogInScreen.setPreferredSize(new java.awt.Dimension(1000, 600));
-        pnlLogInScreen.setSize(new java.awt.Dimension(1000, 600));
+        pnlLogInScreen.setMaximumSize(new java.awt.Dimension(1000, 674));
+        pnlLogInScreen.setMinimumSize(new java.awt.Dimension(1000, 674));
+        pnlLogInScreen.setPreferredSize(new java.awt.Dimension(1000, 674));
+        pnlLogInScreen.setSize(new java.awt.Dimension(1000, 674));
 
         pnlLoginDetails.setBackground(new java.awt.Color(255, 255, 255));
-        pnlLoginDetails.setMaximumSize(new java.awt.Dimension(414, 496));
-        pnlLoginDetails.setMinimumSize(new java.awt.Dimension(414, 496));
-        pnlLoginDetails.setPreferredSize(new java.awt.Dimension(414, 496));
-        pnlLoginDetails.setSize(new java.awt.Dimension(414, 496));
+        pnlLoginDetails.setMaximumSize(new java.awt.Dimension(390, 591));
+        pnlLoginDetails.setMinimumSize(new java.awt.Dimension(390, 591));
+        pnlLoginDetails.setPreferredSize(new java.awt.Dimension(390, 591));
+        pnlLoginDetails.setRequestFocusEnabled(false);
+        pnlLoginDetails.setSize(new java.awt.Dimension(390, 591));
 
         lblLogin.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -322,16 +350,15 @@ public class BabysitterManagement extends javax.swing.JFrame {
                         .addGroup(pnlLoginDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblLogin)
                             .addComponent(lblErrorPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlLoginDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lblUserName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblErrorUserName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtFldUserName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblErrorUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtFldUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtFldPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pnlLoginDetailsLayout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addComponent(btnLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 45, Short.MAX_VALUE))
         );
         pnlLoginDetailsLayout.setVerticalGroup(
             pnlLoginDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,30 +383,30 @@ public class BabysitterManagement extends javax.swing.JFrame {
         );
 
         lblForImageInLoginSc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/0lBYs copy 2.jpeg"))); // NOI18N
-        lblForImageInLoginSc.setMaximumSize(new java.awt.Dimension(414, 496));
-        lblForImageInLoginSc.setMinimumSize(new java.awt.Dimension(414, 496));
-        lblForImageInLoginSc.setPreferredSize(new java.awt.Dimension(414, 496));
-        lblForImageInLoginSc.setSize(new java.awt.Dimension(414, 496));
+        lblForImageInLoginSc.setMaximumSize(new java.awt.Dimension(406, 591));
+        lblForImageInLoginSc.setMinimumSize(new java.awt.Dimension(406, 591));
+        lblForImageInLoginSc.setPreferredSize(new java.awt.Dimension(406, 591));
+        lblForImageInLoginSc.setSize(new java.awt.Dimension(406, 591));
 
         javax.swing.GroupLayout pnlLogInScreenLayout = new javax.swing.GroupLayout(pnlLogInScreen);
         pnlLogInScreen.setLayout(pnlLogInScreenLayout);
         pnlLogInScreenLayout.setHorizontalGroup(
             pnlLogInScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLogInScreenLayout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
-                .addComponent(lblForImageInLoginSc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE)
+                .addComponent(lblForImageInLoginSc, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlLoginDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98))
+                .addComponent(pnlLoginDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
         );
         pnlLogInScreenLayout.setVerticalGroup(
             pnlLogInScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLogInScreenLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(pnlLogInScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblForImageInLoginSc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlLoginDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                    .addComponent(pnlLoginDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblForImageInLoginSc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pnlBabySitter.setBackground(new java.awt.Color(255, 255, 255));
@@ -806,29 +833,34 @@ public class BabysitterManagement extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1000, 647));
+        setMinimumSize(new java.awt.Dimension(1000, 647));
+        setSize(new java.awt.Dimension(1000, 647));
 
         pnlLoadingScreen.setBackground(new java.awt.Color(255, 255, 255));
-        pnlLoadingScreen.setMaximumSize(new java.awt.Dimension(1000, 600));
-        pnlLoadingScreen.setMinimumSize(new java.awt.Dimension(1000, 600));
-        pnlLoadingScreen.setPreferredSize(new java.awt.Dimension(1000, 600));
+        pnlLoadingScreen.setMaximumSize(new java.awt.Dimension(1000, 647));
+        pnlLoadingScreen.setMinimumSize(new java.awt.Dimension(1000, 647));
+        pnlLoadingScreen.setPreferredSize(new java.awt.Dimension(1000, 647));
+        pnlLoadingScreen.setSize(new java.awt.Dimension(1000, 647));
         pnlLoadingScreen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pgBarSplashSc.setBackground(new java.awt.Color(204, 204, 204));
         pgBarSplashSc.setForeground(new java.awt.Color(34, 125, 143));
-        pnlLoadingScreen.add(pgBarSplashSc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 940, 40));
+        pnlLoadingScreen.add(pgBarSplashSc, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 900, 40));
 
-        lblImageForLoadingSc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/IMG_6471.JPG"))); // NOI18N
-        pnlLoadingScreen.add(lblImageForLoadingSc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
+        lblBgImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/IMG_6471.JPG"))); // NOI18N
+        lblBgImage.setSize(new java.awt.Dimension(1000, 647));
+        pnlLoadingScreen.add(lblBgImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlLoadingScreen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 955, Short.MAX_VALUE)
+            .addComponent(pnlLoadingScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlLoadingScreen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlLoadingScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -1240,7 +1272,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void cbSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSortActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cbSortActionPerformed
 
     private void txtFldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldPasswordActionPerformed
@@ -1406,10 +1438,12 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbSort;
     private javax.swing.JButton deleteBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblBabysitterId;
+    private javax.swing.JLabel lblBgImage;
     private javax.swing.JLabel lblContact;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblErrorMessageAddress;
@@ -1423,12 +1457,13 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lblErrorUserName;
     private javax.swing.JLabel lblExperience;
     private javax.swing.JLabel lblForImageInLoginSc;
-    private javax.swing.JLabel lblForLogo;
-    private javax.swing.JLabel lblImageAdminSc;
-    private javax.swing.JLabel lblImageForLoadingSc;
+    private javax.swing.JLabel lblInfoContact;
     private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblOurStoryImage;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPhoneImage;
     private javax.swing.JLabel lblToAddTitle;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblWelcomeAdmin;
