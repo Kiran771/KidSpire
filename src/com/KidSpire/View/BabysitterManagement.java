@@ -55,7 +55,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblLogo = new javax.swing.JLabel();
         pnlSideMenuBar = new javax.swing.JPanel();
         lblWelcomeAdmin = new javax.swing.JLabel();
-        btnAddBabySitter = new javax.swing.JButton();
+        btnGoToForm = new javax.swing.JButton();
         lblAdmin = new javax.swing.JLabel();
         lblInfoContact = new javax.swing.JLabel();
         lblPhoneImage = new javax.swing.JLabel();
@@ -183,14 +183,14 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblWelcomeAdmin.setFont(new java.awt.Font("Hiragino Sans GB", 0, 18)); // NOI18N
         lblWelcomeAdmin.setText("Welcome, Admin");
 
-        btnAddBabySitter.setBackground(new java.awt.Color(173, 165, 158));
-        btnAddBabySitter.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        btnAddBabySitter.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddBabySitter.setText("BabySitter");
-        btnAddBabySitter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAddBabySitter.addActionListener(new java.awt.event.ActionListener() {
+        btnGoToForm.setBackground(new java.awt.Color(173, 165, 158));
+        btnGoToForm.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        btnGoToForm.setForeground(new java.awt.Color(255, 255, 255));
+        btnGoToForm.setText("BabySitter");
+        btnGoToForm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGoToForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddBabySitterActionPerformed(evt);
+                btnGoToFormActionPerformed(evt);
             }
         });
 
@@ -222,7 +222,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                     .addComponent(lblPhoneImage, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                        .addComponent(btnAddBabySitter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGoToForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
                             .addGap(16, 16, 16)
                             .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -237,7 +237,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAddBabySitter, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGoToForm, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -952,9 +952,9 @@ public class BabysitterManagement extends javax.swing.JFrame {
         loadScreen("LoginScreen"); // Load the main screen
     }//GEN-LAST:event_logOutBtnActionPerformed
 
-    private void btnAddBabySitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBabySitterActionPerformed
+    private void btnGoToFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToFormActionPerformed
         loadScreen("BabysitterScreen"); //Load Babysitter screen 
-    }//GEN-LAST:event_btnAddBabySitterActionPerformed
+    }//GEN-LAST:event_btnGoToFormActionPerformed
 
 
     /**
@@ -1027,7 +1027,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
      */
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         boolean isValid = true;
-        txtFieldBabysitterId.setEditable(true);
+        
         // Validate Babysitter ID
         isValid &= validateField(txtFieldBabysitterId, lblErrorMessageBsId, "Must contain 5 digit number only.",
                 errorColor, successColor, ValidationUtil.isValidBabysitterId(txtFieldBabysitterId.getText())
@@ -1112,6 +1112,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * @param evt the action event triggered by the update button
      */
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        
         boolean isValid = true;
         int selectedRow = tblToDisplayBabysitterInfo.getSelectedRow();
         //Check if no row is selected
@@ -1178,6 +1179,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 // Refresh the table
                 loadListToTable(babysitterList);
                 showMessageBox("Babysitter updated successfully", "Updated", JOptionPane.INFORMATION_MESSAGE);
+                
 
             }
         } catch (IndexOutOfBoundsException e) {
@@ -1198,7 +1200,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * @param evt the action event triggered by the delete button
      */
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-        txtFieldBabysitterId.setEditable(true);
+        
         boolean isValid = true;
         try {
             int selectedRow = tblToDisplayBabysitterInfo.getSelectedRow();
@@ -1424,7 +1426,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
     private javax.swing.JPanel adminWelcomePnl;
-    private javax.swing.JButton btnAddBabySitter;
+    private javax.swing.JButton btnGoToForm;
     private javax.swing.JButton btnLogIn;
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbSort;
