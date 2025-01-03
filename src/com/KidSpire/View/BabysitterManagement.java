@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.kidSpire.view;
+package com.kidspire.view;
 
 import com.kidspire.model.BabysitterModel;
 import com.kidspire.util.ValidationUtil;
@@ -218,14 +218,15 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
             .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblPhoneImage, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                    .addComponent(lblAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddBabySitter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPhoneImage, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                        .addComponent(btnAddBabySitter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
+                            .addGap(16, 16, 16)
+                            .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(5, Short.MAX_VALUE))
         );
         pnlSideMenuBarLayout.setVerticalGroup(
@@ -240,8 +241,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPhoneImage, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(lblPhoneImage, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -942,9 +943,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         worker.execute(); // Start the worker thread
     }
 
-    public void addBabysittersToTabel(BabysitterModel babysitterList) {
-
-    }
+    
 
 
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
@@ -956,15 +955,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void btnAddBabySitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBabySitterActionPerformed
         loadScreen("BabysitterScreen"); //Load Babysitter screen 
     }//GEN-LAST:event_btnAddBabySitterActionPerformed
-//    // Method to add Babysitters info and populate the table
-//    private void registerBabysitters(BabysitterModel babysitter) {
-//        babysitterList.add(babysitter);
-//        DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
-//        model.addRow(new Object[]{
-//            babysitter.getBabysitterId(), babysitter.getName(), babysitter.getAge(),
-//            babysitter.getContact(), babysitter.getEmail(), babysitter.getExperience(), babysitter.getAddress()
-//        });
-//    }
+
 
     /**
      * login admin in the system by checking whether the entered username and
