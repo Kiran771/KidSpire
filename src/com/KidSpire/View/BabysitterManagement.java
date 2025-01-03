@@ -1215,7 +1215,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             model.removeRow(selectedRow);
             clearBabysitterForm();
             showMessageBox("Data deleted successfully.", "Deleted", JOptionPane.INFORMATION_MESSAGE);
-            txtFieldBabysitterId.setEditable(true);
+            
         } catch (IndexOutOfBoundsException e) {
             showMessageBox("Invalid row selected.", "Invalid row", JOptionPane.ERROR_MESSAGE);
         }
@@ -1373,6 +1373,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         txtFieldAddress.setText("");
         txtFieldEmail.setText("");
         txtFieldExperience.setText("");
+        txtFieldBabysitterId.setEditable(true);
     }
 
     /**
