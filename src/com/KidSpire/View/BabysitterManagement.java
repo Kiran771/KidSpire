@@ -641,7 +641,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         });
 
-        cbSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sort by", "Id", "Name", "Experience", " " }));
+        cbSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sort by", "Id", "Name(Ascending)", "Name(Descending)", "Experience(Descending)", "Experience(Ascending)", " " }));
         cbSort.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         cbSort.setMaximumSize(new java.awt.Dimension(148, 31));
         cbSort.setMinimumSize(new java.awt.Dimension(148, 31));
@@ -1325,18 +1325,26 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void cbSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSortActionPerformed
 
         String sortBy = ((String) cbSort.getSelectedItem()).trim();
+        System.out.println("Selected sort option: " + sortBy);
         
         if (sortBy.equalsIgnoreCase("Sort By")) {
             JOptionPane.showMessageDialog(this, "Please select a valid sorting option.", "Error", JOptionPane.ERROR_MESSAGE);
             return; 
         }
-        if(sortBy.equalsIgnoreCase("Experience")){
-            sorting.InsertionSortByExperience(babysitterList, this);
+        if(sortBy.equalsIgnoreCase("Experience(Ascending)")){
+            sorting.InsertionSortByExperience(babysitterList, true,this);
             loadDetailsToTable(babysitterList);
         
-        }else if(sortBy.equalsIgnoreCase("Name")){
+        }else if(sortBy.equalsIgnoreCase("Experience(Descending)")){
+            sorting.InsertionSortByExperience(babysitterList, false, this);
+        
+        }else if(sortBy.equalsIgnoreCase("Name(Ascending)")){
             
             sorting.selectionSortByName(babysitterList,true,this);
+            loadDetailsToTable(babysitterList);
+        }else if(sortBy.equalsIgnoreCase("Name(Descending)")){
+            
+            sorting.selectionSortByName(babysitterList,false,this);
             loadDetailsToTable(babysitterList);
         }
         

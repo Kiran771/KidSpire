@@ -27,11 +27,11 @@ public class Sorting {
     }
 
     /**
-     * 
+     *
      * @param unsortedData
-     * @param parentFrame 
+     * @param parentFrame
      */
-    public void InsertionSortByExperience(LinkedList<BabysitterModel> unsortedData, JFrame parentFrame) {
+    public void InsertionSortByExperience(LinkedList<BabysitterModel> unsortedData, boolean isAsc, JFrame parentFrame) {
         if (!validateListForSorting(unsortedData, parentFrame)) {
             return;
         }
@@ -44,12 +44,15 @@ public class Sorting {
             int sortedIndex = i - 1;
             while (sortedIndex >= 0) {
                 boolean shouldSwap = false;
+                if (isAsc) {
 
-                if (currentValue.getExperience() > dataToSort.get(sortedIndex).getExperience()) {
-                    shouldSwap = true;
-                } else if (currentValue.getExperience() == dataToSort.get(sortedIndex).getExperience()) {
-
-                    shouldSwap = false;
+                    if (currentValue.getExperience() < dataToSort.get(sortedIndex).getExperience()) {
+                        shouldSwap = true;
+                    }
+                } else {
+                    if (currentValue.getExperience() > dataToSort.get(sortedIndex).getExperience()) {
+                        shouldSwap = true;
+                    }
                 }
 
                 //break the loop when no further swap is needed 
@@ -69,14 +72,17 @@ public class Sorting {
         unsortedData.addAll(dataToSort);
 
     }
-    /**
-     * 
-     * @param unsortedData
-     * @param isAsc
-     * @param parentFrame 
-     */
 
-    public void selectionSortByName(LinkedList<BabysitterModel> unsortedData, boolean isAsc,JFrame parentFrame) {
+    /**
+     * Sorts the given LinkedList of BabysitterModel objects by name using
+     * Selection Sort in ascending or descending order.
+     *
+     * @param unsortedData The LinkedList to be sorted.
+     * @param isAsc True for ascending order, false for descending order.
+     * @param parentFrame The parent frame for error messages if the list is
+     * invalid.
+     */
+    public void selectionSortByName(LinkedList<BabysitterModel> unsortedData, boolean isAsc, JFrame parentFrame) {
         if (!validateListForSorting(unsortedData, parentFrame)) {
             return;
         }
@@ -85,16 +91,16 @@ public class Sorting {
         for (int i = 0; i < dataToSort.size() - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < dataToSort.size(); j++) {
-                
-                if(isAsc){
-                if (dataToSort.get(j).getName()
-                        .compareToIgnoreCase(dataToSort.get(minIndex).getName()) < 0) {
-                    minIndex = j;
-                }
-                }else{
-                    if(dataToSort.get(j).getName()
-                            .compareToIgnoreCase(dataToSort.get(minIndex).getName())>0){
-                        minIndex=j;
+
+                if (isAsc) {
+                    if (dataToSort.get(j).getName()
+                            .compareToIgnoreCase(dataToSort.get(minIndex).getName()) < 0) {
+                        minIndex = j;
+                    }
+                } else {
+                    if (dataToSort.get(j).getName()
+                            .compareToIgnoreCase(dataToSort.get(minIndex).getName()) > 0) {
+                        minIndex = j;
                     }
                 }
 
@@ -115,6 +121,7 @@ public class Sorting {
     /**
      * Validates if the list has more than one element for sorting. Displays an
      * error if the list is empty or contains only one item.
+     *
      * @param unsortedData The list of BabysitterModel objects to be sorted.
      * @param parentFrame The parent frame for displaying messages.
      * @return true if the list is valid for sorting, false otherwise.
@@ -128,6 +135,7 @@ public class Sorting {
             JOptionPane.showMessageDialog(parentFrame, "Only one item in the list. Sorting is not necessary.", "Information", JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
+        System.out.println("List is valid for sorting.");
         return true;
     }
 }
