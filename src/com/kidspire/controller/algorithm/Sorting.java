@@ -135,7 +135,7 @@ public class Sorting {
             JOptionPane.showMessageDialog(parentFrame, "Only one item in the list. Sorting is not necessary.", "Information", JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
-        System.out.println("List is valid for sorting.");
+       
         return true;
     }
 }

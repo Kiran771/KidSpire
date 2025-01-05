@@ -947,7 +947,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
 ////        addSampleBabysitter(new BabysitterModel(23458,"Bidhya",(short) 25,"9868963210",4,"Baneshwor","bidhya@gmail.com"));
 ////        
 //    }
-
     /**
      * Simulates the loading progress using a SwingWorker thread. Updates a
      * progress bar incrementally and switches to the login screen upon
@@ -999,7 +998,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
 //            babysitter.getEmail()
 //        });
 //    }
-
 
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
         txtFldPassword.setText("");
@@ -1325,29 +1323,27 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void cbSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSortActionPerformed
 
         String sortBy = ((String) cbSort.getSelectedItem()).trim();
-        System.out.println("Selected sort option: " + sortBy);
-        
+
         if (sortBy.equalsIgnoreCase("Sort By")) {
             JOptionPane.showMessageDialog(this, "Please select a valid sorting option.", "Error", JOptionPane.ERROR_MESSAGE);
-            return; 
+            return;
         }
-        if(sortBy.equalsIgnoreCase("Experience(Ascending)")){
-            sorting.InsertionSortByExperience(babysitterList, true,this);
-            loadDetailsToTable(babysitterList);
-        
-        }else if(sortBy.equalsIgnoreCase("Experience(Descending)")){
+        if (sortBy.equalsIgnoreCase("Experience(Ascending)")) {
+            sorting.InsertionSortByExperience(babysitterList, true, this);
+
+        } else if (sortBy.equalsIgnoreCase("Experience(Descending)")) {
             sorting.InsertionSortByExperience(babysitterList, false, this);
-        
-        }else if(sortBy.equalsIgnoreCase("Name(Ascending)")){
-            
-            sorting.selectionSortByName(babysitterList,true,this);
-            loadDetailsToTable(babysitterList);
-        }else if(sortBy.equalsIgnoreCase("Name(Descending)")){
-            
-            sorting.selectionSortByName(babysitterList,false,this);
-            loadDetailsToTable(babysitterList);
+
+        } else if (sortBy.equalsIgnoreCase("Name(Ascending)")) {
+
+            sorting.selectionSortByName(babysitterList, true, this);
+
+        } else if (sortBy.equalsIgnoreCase("Name(Descending)")) {
+
+            sorting.selectionSortByName(babysitterList, false, this);
+
         }
-        
+        loadDetailsToTable(babysitterList);
 
     }//GEN-LAST:event_cbSortActionPerformed
 
