@@ -1270,7 +1270,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void cbSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSortActionPerformed
 
         String sortBy = (String) cbSort.getSelectedItem();
-        if (sortBy.equals("Sort By")) {
+        if (sortBy.equalsIgnoreCase("Sort By")) {
             JOptionPane.showMessageDialog(this, "Please select a valid sorting option.", "Error", JOptionPane.ERROR_MESSAGE);
             return; // Do nothing if "Sort By" is selected
         }
