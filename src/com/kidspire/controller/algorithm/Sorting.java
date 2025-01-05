@@ -45,6 +45,13 @@ public class Sorting {
             return;
 
         }
+
+        // Display a message if there is only one element
+        if (babysitterList.size() == 1) {
+            JOptionPane.showMessageDialog(parentFrame, "Only one item in the list. Sorting is not necessary.", "Information", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
         //convert linked list to arraylist
         babysitterArrayList = new ArrayList<>(babysitterList);
 
