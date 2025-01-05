@@ -6,6 +6,7 @@ package com.kidspire.view;
 
 import com.kidspire.model.BabysitterModel;
 import com.kidspire.util.ValidationUtil;
+import com.kidspire.controller.algorithm.Sorting;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import java.awt.Color;
@@ -15,8 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author kiransaud
- * 23048603
+ * @author kiransaud 23048603
  */
 public class BabysitterManagement extends javax.swing.JFrame {
 
@@ -25,6 +25,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private final Color successColor = new Color(0, 0, 0);//Define color for successful entry
     private DefaultTableModel defaultTableModel;
     private LinkedList<BabysitterModel> babysitterList;
+    private Sorting sorting; // Declare the instance variable for Sorting
 
     /**
      * Creates new form KidSpire
@@ -34,6 +35,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         loadLoginScreen();
         initializeLayout();
         startProgress();
+        sorting = new Sorting();
 
         babysitterList = new LinkedList<>();
 
@@ -417,7 +419,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         pnlBabySitter.setRequestFocusEnabled(false);
         pnlBabySitter.setSize(new java.awt.Dimension(1000, 680));
 
-        pnlForm.setBackground(new java.awt.Color(204, 185, 121));
+        pnlForm.setBackground(new java.awt.Color(204, 208, 199));
         pnlForm.setMaximumSize(new java.awt.Dimension(1000, 360));
         pnlForm.setMinimumSize(new java.awt.Dimension(1000, 360));
         pnlForm.setPreferredSize(new java.awt.Dimension(1000, 360));
@@ -549,10 +551,10 @@ public class BabysitterManagement extends javax.swing.JFrame {
         txtFieldEmail.setPreferredSize(new java.awt.Dimension(209, 39));
         txtFieldEmail.setSize(new java.awt.Dimension(209, 39));
 
-        lblErrorMessageEmail.setMaximumSize(new java.awt.Dimension(308, 34));
-        lblErrorMessageEmail.setMinimumSize(new java.awt.Dimension(308, 34));
-        lblErrorMessageEmail.setPreferredSize(new java.awt.Dimension(308, 34));
-        lblErrorMessageEmail.setSize(new java.awt.Dimension(308, 34));
+        lblErrorMessageEmail.setMaximumSize(new java.awt.Dimension(349, 34));
+        lblErrorMessageEmail.setMinimumSize(new java.awt.Dimension(349, 34));
+        lblErrorMessageEmail.setPreferredSize(new java.awt.Dimension(349, 34));
+        lblErrorMessageEmail.setSize(new java.awt.Dimension(349, 34));
 
         addBtn.setBackground(new java.awt.Color(102, 102, 102));
         addBtn.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
@@ -610,7 +612,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         });
 
-        pnlSearchSort.setBackground(new java.awt.Color(204, 185, 121));
+        pnlSearchSort.setBackground(new java.awt.Color(204, 208, 199));
         pnlSearchSort.setMaximumSize(new java.awt.Dimension(320, 65));
         pnlSearchSort.setMinimumSize(new java.awt.Dimension(320, 65));
         pnlSearchSort.setPreferredSize(new java.awt.Dimension(320, 65));
@@ -638,7 +640,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         });
 
-        cbSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sort by id", "Sort by name", "Sort by experience", " " }));
+        cbSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sort by", " Id", " Name", "Experience", " " }));
         cbSort.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         cbSort.setMaximumSize(new java.awt.Dimension(148, 31));
         cbSort.setMinimumSize(new java.awt.Dimension(148, 31));
@@ -712,7 +714,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblErrorMessageEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlFormLayout.createSequentialGroup()
                                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -723,7 +724,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
                                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblExperience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtFieldExperience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblErrorMessageExperience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(lblErrorMessageExperience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblErrorMessageEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlFormLayout.setVerticalGroup(
@@ -763,7 +765,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblErrorMessageAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblErrorMessageContact, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblErrorMessageEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblErrorMessageEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFormLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -943,8 +945,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
         worker.execute(); // Start the worker thread
     }
 
-    
-
 
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
         txtFldPassword.setText("");
@@ -955,7 +955,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void btnGoToFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToFormActionPerformed
         loadScreen("BabysitterScreen"); //Load Babysitter screen 
     }//GEN-LAST:event_btnGoToFormActionPerformed
-
 
     /**
      * login admin in the system by checking whether the entered username and
@@ -1027,7 +1026,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
      */
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         boolean isValid = true;
-        
+
         // Validate Babysitter ID
         isValid &= validateField(txtFieldBabysitterId, lblErrorMessageBsId, "Must contain 5 digit number only.",
                 errorColor, successColor, ValidationUtil.isValidBabysitterId(txtFieldBabysitterId.getText())
@@ -1040,7 +1039,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
 
         // Validate Contact
         isValid &= validateField(
-                txtFieldContact, lblErrorMessageContact, "Must start with 98 and have 10 digits.",
+                txtFieldContact, lblErrorMessageContact, "Start with 98 and have 10 digits.",
                 errorColor, successColor, ValidationUtil.isValidContact(txtFieldContact.getText())
         );
         // Validate address
@@ -1063,7 +1062,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         try {
             int experience = Integer.parseInt(txtFieldExperience.getText().trim());
             isValid &= validateField(
-                    txtFieldExperience, lblErrorMessageExperience, "Must have atleast 1 year exp.",
+                    txtFieldExperience, lblErrorMessageExperience, "Atleast 1 year exp.",
                     errorColor, successColor, ValidationUtil.isValidExperience(experience)
             );
         } catch (NumberFormatException e) {
@@ -1072,7 +1071,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         }
         //Validate email
         isValid &= validateField(
-                txtFieldEmail, lblErrorMessageEmail, "Enter a valid email in the format: example@domain.com.",
+                txtFieldEmail, lblErrorMessageEmail, "Enter a valid email format: example@domain.com.",
                 errorColor, successColor, ValidationUtil.isVaildEmail(txtFieldEmail.getText())
         );
         //if all the validate are true then create new instance of babysitter
@@ -1112,7 +1111,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * @param evt the action event triggered by the update button
      */
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-        
+
         boolean isValid = true;
         int selectedRow = tblToDisplayBabysitterInfo.getSelectedRow();
         //Check if no row is selected
@@ -1128,7 +1127,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
 
         // Validate Contact
         isValid &= validateField(
-                txtFieldContact, lblErrorMessageContact, "Must start with 98 and have 10 digits.",
+                txtFieldContact, lblErrorMessageContact, "Start with 98 and have 10 digits.",
                 errorColor, successColor, ValidationUtil.isValidContact(txtFieldContact.getText())
         );
         // Validate address
@@ -1179,7 +1178,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 // Refresh the table
                 loadListToTable(babysitterList);
                 showMessageBox("Babysitter updated successfully", "Updated", JOptionPane.INFORMATION_MESSAGE);
-                
 
             }
         } catch (IndexOutOfBoundsException e) {
@@ -1200,7 +1198,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * @param evt the action event triggered by the delete button
      */
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-        
+
         boolean isValid = true;
         try {
             int selectedRow = tblToDisplayBabysitterInfo.getSelectedRow();
@@ -1215,7 +1213,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             model.removeRow(selectedRow);
             clearBabysitterForm();
             showMessageBox("Data deleted successfully.", "Deleted", JOptionPane.INFORMATION_MESSAGE);
-            
+
         } catch (IndexOutOfBoundsException e) {
             showMessageBox("Invalid row selected.", "Invalid row", JOptionPane.ERROR_MESSAGE);
         }
@@ -1264,9 +1262,21 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSearchActionPerformed
-
+    /**
+     * Handles the action event when options in combo box are selected
+     *
+     * @param evt the ActionEvent generated by the combo box selection
+     */
     private void cbSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSortActionPerformed
-        
+
+        String sortBy = (String) cbSort.getSelectedItem();
+        if (sortBy.equals("Sort By")) {
+            JOptionPane.showMessageDialog(this, "Please select a valid sorting option.", "Error", JOptionPane.ERROR_MESSAGE);
+            return; // Do nothing if "Sort By" is selected
+        }
+        sorting.InsertionSortBy(babysitterList, sortBy, this);
+        loadListToTable(babysitterList);
+
     }//GEN-LAST:event_cbSortActionPerformed
 
     private void txtFldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldPasswordActionPerformed

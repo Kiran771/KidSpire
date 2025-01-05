@@ -601,7 +601,7 @@
         <Container class="javax.swing.JPanel" name="pnlForm">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="79" green="b9" red="cc" type="rgb"/>
+              <Color blue="c7" green="d0" red="cc" type="rgb"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[1000, 360]"/>
@@ -658,7 +658,6 @@
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblErrorMessageEmail" alignment="0" min="-2" pref="308" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblAge" min="-2" max="-2" attributes="0"/>
@@ -673,6 +672,7 @@
                                           <Component id="lblErrorMessageExperience" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Component id="lblErrorMessageEmail" min="-2" pref="349" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -724,7 +724,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblErrorMessageAddress" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="lblErrorMessageContact" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="lblErrorMessageEmail" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="lblErrorMessageEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -1137,16 +1137,16 @@
             <Component class="javax.swing.JLabel" name="lblErrorMessageEmail">
               <Properties>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[308, 34]"/>
+                  <Dimension value="[349, 34]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[308, 34]"/>
+                  <Dimension value="[349, 34]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[308, 34]"/>
+                  <Dimension value="[349, 34]"/>
                 </Property>
                 <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[308, 34]"/>
+                  <Dimension value="[349, 34]"/>
                 </Property>
               </Properties>
             </Component>
@@ -1269,7 +1269,7 @@
             <Container class="javax.swing.JPanel" name="pnlSearchSort">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="79" green="b9" red="cc" type="rgb"/>
+                  <Color blue="c7" green="d0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[320, 65]"/>
@@ -1361,11 +1361,12 @@
                 <Component class="javax.swing.JComboBox" name="cbSort">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Sort by id"/>
-                        <StringItem index="1" value="Sort by name"/>
-                        <StringItem index="2" value="Sort by experience"/>
-                        <StringItem index="3" value=" "/>
+                      <StringArray count="5">
+                        <StringItem index="0" value="Sort by"/>
+                        <StringItem index="1" value=" Id"/>
+                        <StringItem index="2" value=" Name"/>
+                        <StringItem index="3" value="Experience"/>
+                        <StringItem index="4" value=" "/>
                       </StringArray>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
