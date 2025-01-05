@@ -792,7 +792,15 @@ public class BabysitterManagement extends javax.swing.JFrame {
             new String [] {
                 "Babysitter Id", "Name", "Age", "Experience", "Address", "Contact", "Email"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblToDisplayBabysitterInfo.setMaximumSize(new java.awt.Dimension(1000, 330));
         tblToDisplayBabysitterInfo.setMinimumSize(new java.awt.Dimension(1000, 330));
         tblToDisplayBabysitterInfo.setPreferredSize(new java.awt.Dimension(1000, 330));
@@ -803,6 +811,15 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         });
         spTblBabysitter.setViewportView(tblToDisplayBabysitterInfo);
+        if (tblToDisplayBabysitterInfo.getColumnModel().getColumnCount() > 0) {
+            tblToDisplayBabysitterInfo.getColumnModel().getColumn(0).setResizable(false);
+            tblToDisplayBabysitterInfo.getColumnModel().getColumn(1).setResizable(false);
+            tblToDisplayBabysitterInfo.getColumnModel().getColumn(2).setResizable(false);
+            tblToDisplayBabysitterInfo.getColumnModel().getColumn(3).setResizable(false);
+            tblToDisplayBabysitterInfo.getColumnModel().getColumn(4).setResizable(false);
+            tblToDisplayBabysitterInfo.getColumnModel().getColumn(5).setResizable(false);
+            tblToDisplayBabysitterInfo.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         javax.swing.GroupLayout tblPnlLayout = new javax.swing.GroupLayout(tblPnl);
         tblPnl.setLayout(tblPnlLayout);
@@ -919,8 +936,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * Populates the babysitter list with sample data for demonstration purposes.
      */
     private void initializeData() {
-        babysitterList = new LinkedList<>();
-
+        
+        
         // 
         addSampleBabysitter(new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com"));
         addSampleBabysitter(new BabysitterModel(23457,"Sunaina",(short) 23,"9876453450",2,"Kamalpokhari","sunaina@gmail.com"));
@@ -963,11 +980,13 @@ public class BabysitterManagement extends javax.swing.JFrame {
     // Method to add student data and populate the table
     private void addSampleBabysitter(BabysitterModel babysitter) {
         babysitterList.add(babysitter);
+        System.out.println(babysitter.getBabysitterId());
         DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
         model.addRow(new Object[]{
             babysitter.getBabysitterId(), babysitter.getName(), babysitter.getAge(),
-            babysitter.getContact(), babysitter.getExperience(),babysitter.getAddress(),babysitter.getEmail()
+            babysitter.getExperience(),babysitter.getAddress(),babysitter.getContact(),babysitter.getEmail()
         });
+         
     }
 
 
