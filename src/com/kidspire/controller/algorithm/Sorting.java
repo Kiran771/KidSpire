@@ -27,63 +27,32 @@ public class Sorting {
     }
 
     /**
-     * Sorts the provided list of babysitter objects based on the specified
-     * criteria. Displays an error message if the list is empty or if an invalid
-     * sorting criterion is provided.
-     *The comparison return integer value i.e. +ve value when sorted value is greater than currentValue ,
-     * -ve when sorted value is already in sorted position and 0 when both values are equal
-     * @param babysitterList The list of BabysitterModel objects that need to be
-     * sorted.
-     * @param selectedSortOption The sorting criteria selected by the user.
-     * Valid options include "ID", "Name", and "Experience".
-     * @param parentFrame The parent frame used for displaying a message dialog
-     * in case of errors.
+     *
+     * @param babysitterList
+     * @param selectedSortOption
+     * @param parentFrame
      */
-    public void InsertionSortBy(LinkedList<BabysitterModel> babysitterList, String selectedSortOption, JFrame parentFrame) {
-        //Display a message if the list to be sorted is empty
-        if (babysitterList.isEmpty()) {
-            JOptionPane.showMessageDialog(parentFrame, "No elements to sort.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-
-        }
-
-        // Display a message if there is only one element
-        if (babysitterList.size() == 1) {
-            JOptionPane.showMessageDialog(parentFrame, "Only one item in the list. Sorting is not necessary.", "Information", JOptionPane.INFORMATION_MESSAGE);
+    public void InsertionSortByExperience(LinkedList<BabysitterModel> babysitterList, JFrame parentFrame) {
+        if (!validateListForSorting(babysitterList, parentFrame)) {
             return;
         }
 
         //convert linked list to arraylist
         babysitterArrayList = new ArrayList<>(babysitterList);
-        System.out.println("Before sorting: " + babysitterArrayList);
 
         for (int i = 1; i < babysitterArrayList.size(); i++) {
             BabysitterModel currentValue = babysitterArrayList.get(i);
             int sortedIndex = i - 1;
             while (sortedIndex >= 0) {
                 boolean shouldSwap = false;
-                if ("id".equalsIgnoreCase(selectedSortOption)) {
-                    shouldSwap = currentValue.getBabysitterId() < babysitterArrayList.get(sortedIndex).getBabysitterId();
-                    
-                } else if ("Name".equalsIgnoreCase(selectedSortOption)) {
-                    
-                    int nameComparison = currentValue.getName()
-                            .compareToIgnoreCase(babysitterArrayList.get(sortedIndex).getName());
 
-                    if (nameComparison < 0) {
-                        shouldSwap = true;
-                    } else if (nameComparison == 0) {
+                if (currentValue.getExperience() > babysitterArrayList.get(sortedIndex).getExperience()) {
+                    shouldSwap = true;
+                } else if (currentValue.getExperience() == babysitterArrayList.get(sortedIndex).getExperience()) {
 
-                        shouldSwap = currentValue.getBabysitterId() < babysitterArrayList.get(sortedIndex).getBabysitterId();
-                    }
-                } else if ("Experience".equalsIgnoreCase(selectedSortOption)) {
-                    if (currentValue.getExperience() > babysitterArrayList.get(sortedIndex).getExperience()) {
-                        shouldSwap = true; 
-                    } else if (currentValue.getExperience() == babysitterArrayList.get(sortedIndex).getExperience()) {
-                        
-                        shouldSwap = currentValue.getBabysitterId() < babysitterArrayList.get(sortedIndex).getBabysitterId();
-                    }
+                    shouldSwap = false;
                 }
+
                 //break the loop when no further swap is needed 
                 if (!shouldSwap) {
                     break;
@@ -93,19 +62,59 @@ public class Sorting {
                 sortedIndex--;
 
             }
+            // Insert the current value in the correct position
             babysitterArrayList.set(sortedIndex + 1, currentValue);
-
         }
         // Update the LinkedList with sorted elements
         babysitterList.clear();
         babysitterList.addAll(babysitterArrayList);
-        System.out.println("After sorting: " + babysitterArrayList);
 
     }
-    public void selectionSortByName(LinkedList<BabysitterModel> babysitterList, String selectedSortOption, JFrame parentFrame){
-       babysitterArrayList = new ArrayList<>(babysitterList); 
-       for (int i = 0; i < babysitterArrayList.size()-1; i++) {
-           int minValue=i;
-       }
+
+    public void selectionSortByName(LinkedList<BabysitterModel> babysitterList, JFrame parentFrame) {
+        if (!validateListForSorting(babysitterList, parentFrame)) {
+            return;
+        }
+        //convert linked list to arraylist
+        babysitterArrayList = new ArrayList<>(babysitterList);
+        for (int i = 0; i < babysitterArrayList.size() - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < babysitterArrayList.size(); j++) {
+                if (babysitterArrayList.get(j).getName()
+                        .compareToIgnoreCase(babysitterArrayList.get(minIndex).getName()) < 0) {
+                    minIndex = j;
+                }
+
+            }
+            // Swapping elements
+            if (minIndex != i) {
+                BabysitterModel temp = babysitterArrayList.get(i);
+                babysitterArrayList.set(i, babysitterArrayList.get(minIndex));
+                babysitterArrayList.set(minIndex, temp);
+            }
+
+        }
+        // Update the original LinkedList with sorted values
+        babysitterList.clear();
+        babysitterList.addAll(babysitterArrayList);
+    }
+
+    /**
+     * Validates if the list has more than one element for sorting. Displays an
+     * error if the list is empty or contains only one item.
+     * @param babysitterList The list of BabysitterModel objects to be sorted.
+     * @param parentFrame The parent frame for displaying messages.
+     * @return true if the list is valid for sorting, false otherwise.
+     */
+    private boolean validateListForSorting(LinkedList<BabysitterModel> babysitterList, JFrame parentFrame) {
+        if (babysitterList.isEmpty()) {
+            JOptionPane.showMessageDialog(parentFrame, "No elements to sort.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (babysitterList.size() == 1) {
+            JOptionPane.showMessageDialog(parentFrame, "Only one item in the list. Sorting is not necessary.", "Information", JOptionPane.INFORMATION_MESSAGE);
+            return false;
+        }
+        return true;
     }
 }

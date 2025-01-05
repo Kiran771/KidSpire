@@ -35,7 +35,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         loadLoginScreen();
         initializeLayout();
         startProgress();
-        initializeData();
+//        initializeData();
         sorting = new Sorting();
 
         babysitterList = new LinkedList<>();
@@ -931,22 +931,23 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void loadScreen(String screenName) {
         cardLayout.show(getContentPane(), screenName);
     }
-    
+
     /**
-     * Initializes the application's data, including the babysitter list and table.
-     * Populates the babysitter list with sample data for demonstration purposes.
+     * Initializes the application's data, including the babysitter list and
+     * table. Populates the babysitter list with sample data for demonstration
+     * purposes.
      */
-    private void initializeData() {
-        // 
-        BabysitterModel babysitter= new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com");
-        babysitterList.add(babysitter);
-        addSampleBabysitter(babysitter);
-//        loadDetailsToTable(babysitterList);
-//        addSampleBabysitter(new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com"));
-//        addSampleBabysitter(new BabysitterModel(23457,"Sunaina",(short) 23,"9876453450",2,"Kamalpokhari","sunaina@gmail.com"));
-//        addSampleBabysitter(new BabysitterModel(23458,"Bidhya",(short) 25,"9868963210",4,"Baneshwor","bidhya@gmail.com"));
-//        
-}
+//    private void initializeData() {
+//        // 
+//        BabysitterModel babysitter = new BabysitterModel(23456, "Garima", (short) 24, "9876453210", 3, "Hattiban", "garima@gmail.com");
+//        babysitterList.add(babysitter);
+//        addSampleBabysitter(babysitter);
+////        loadDetailsToTable(babysitterList);
+////        addSampleBabysitter(new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com"));
+////        addSampleBabysitter(new BabysitterModel(23457,"Sunaina",(short) 23,"9876453450",2,"Kamalpokhari","sunaina@gmail.com"));
+////        addSampleBabysitter(new BabysitterModel(23458,"Bidhya",(short) 25,"9868963210",4,"Baneshwor","bidhya@gmail.com"));
+////        
+//    }
 
     /**
      * Simulates the loading progress using a SwingWorker thread. Updates a
@@ -979,26 +980,26 @@ public class BabysitterManagement extends javax.swing.JFrame {
         };
         worker.execute(); // Start the worker thread
     }
-    
-    // Method to add student data and populate the table
-    private void addSampleBabysitter(BabysitterModel babysitter) {
-        //babysitterList.add(babysitter);
-//         defaultTableModel = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
-//        defaultTableModel.addRow(new Object[]{
-//            babysitter.getBabysitterId(), babysitter.getName(), babysitter.getAge(),
-//            babysitter.getExperience(),babysitter.getAddress(),babysitter.getContact(),babysitter.getEmail()
-//        }); 
-       DefaultTableModel model= (DefaultTableModel) tblToDisplayBabysitterInfo.getModel(); model.addRow(new Object[]{
-           babysitter.getBabysitterId(),
-           babysitter.getName(),
-           babysitter.getAge(),
-           babysitter.getExperience(),
-           babysitter.getAddress(),
-           babysitter.getContact(),
-           babysitter.getEmail()
-       });
-    }
 
+    // Method to add student data and populate the table
+//    private void addSampleBabysitter(BabysitterModel babysitter) {
+//        //babysitterList.add(babysitter);
+////         defaultTableModel = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
+////        defaultTableModel.addRow(new Object[]{
+////            babysitter.getBabysitterId(), babysitter.getName(), babysitter.getAge(),
+////            babysitter.getExperience(),babysitter.getAddress(),babysitter.getContact(),babysitter.getEmail()
+////        }); 
+//        DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
+//        model.addRow(new Object[]{
+//            babysitter.getBabysitterId(),
+//            babysitter.getName(),
+//            babysitter.getAge(),
+//            babysitter.getExperience(),
+//            babysitter.getAddress(),
+//            babysitter.getContact(),
+//            babysitter.getEmail()
+//        });
+//    }
 
 
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
@@ -1327,10 +1328,17 @@ public class BabysitterManagement extends javax.swing.JFrame {
         String sortBy = (String) cbSort.getSelectedItem();
         if (sortBy.equalsIgnoreCase("Sort By")) {
             JOptionPane.showMessageDialog(this, "Please select a valid sorting option.", "Error", JOptionPane.ERROR_MESSAGE);
-            return; // Do nothing if "Sort By" is selected
+            return; 
         }
-        sorting.InsertionSortBy(babysitterList, sortBy, this);
-        loadDetailsToTable(babysitterList);
+        if(sortBy.equalsIgnoreCase("Experience")){
+            sorting.InsertionSortByExperience(babysitterList, this);
+            loadDetailsToTable(babysitterList);
+        
+        }else if(sortBy.equalsIgnoreCase("Name")){
+            sorting.selectionSortByName(babysitterList, this);
+            loadDetailsToTable(babysitterList);
+        }
+        
 
     }//GEN-LAST:event_cbSortActionPerformed
 
