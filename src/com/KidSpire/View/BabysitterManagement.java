@@ -1336,7 +1336,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         
         }else if(sortBy.equalsIgnoreCase("Name")){
             
-            sorting.selectionSortByName(babysitterList, this);
+            sorting.selectionSortByName(babysitterList,true,this);
             loadDetailsToTable(babysitterList);
         }
         

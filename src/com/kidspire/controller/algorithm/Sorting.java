@@ -19,36 +19,35 @@ import javax.swing.JOptionPane;
  */
 public class Sorting {
 
-    private List<BabysitterModel> babysitterArrayList;
+    private List<BabysitterModel> dataToSort;
 
     public Sorting() {
-        babysitterArrayList = new ArrayList<>();
+        dataToSort = new ArrayList<>();
 
     }
 
     /**
-     *
-     * @param babysitterList
-     * @param selectedSortOption
-     * @param parentFrame
+     * 
+     * @param unsortedData
+     * @param parentFrame 
      */
-    public void InsertionSortByExperience(LinkedList<BabysitterModel> babysitterList, JFrame parentFrame) {
-        if (!validateListForSorting(babysitterList, parentFrame)) {
+    public void InsertionSortByExperience(LinkedList<BabysitterModel> unsortedData, JFrame parentFrame) {
+        if (!validateListForSorting(unsortedData, parentFrame)) {
             return;
         }
 
         //convert linked list to arraylist
-        babysitterArrayList = new ArrayList<>(babysitterList);
+        dataToSort = new ArrayList<>(unsortedData);
 
-        for (int i = 1; i < babysitterArrayList.size(); i++) {
-            BabysitterModel currentValue = babysitterArrayList.get(i);
+        for (int i = 1; i < dataToSort.size(); i++) {
+            BabysitterModel currentValue = dataToSort.get(i);
             int sortedIndex = i - 1;
             while (sortedIndex >= 0) {
                 boolean shouldSwap = false;
 
-                if (currentValue.getExperience() > babysitterArrayList.get(sortedIndex).getExperience()) {
+                if (currentValue.getExperience() > dataToSort.get(sortedIndex).getExperience()) {
                     shouldSwap = true;
-                } else if (currentValue.getExperience() == babysitterArrayList.get(sortedIndex).getExperience()) {
+                } else if (currentValue.getExperience() == dataToSort.get(sortedIndex).getExperience()) {
 
                     shouldSwap = false;
                 }
@@ -58,60 +57,74 @@ public class Sorting {
                     break;
                 }
 
-                babysitterArrayList.set(sortedIndex + 1, babysitterArrayList.get(sortedIndex));
+                dataToSort.set(sortedIndex + 1, dataToSort.get(sortedIndex));
                 sortedIndex--;
 
             }
             // Insert the current value in the correct position
-            babysitterArrayList.set(sortedIndex + 1, currentValue);
+            dataToSort.set(sortedIndex + 1, currentValue);
         }
         // Update the LinkedList with sorted elements
-        babysitterList.clear();
-        babysitterList.addAll(babysitterArrayList);
+        unsortedData.clear();
+        unsortedData.addAll(dataToSort);
 
     }
+    /**
+     * 
+     * @param unsortedData
+     * @param isAsc
+     * @param parentFrame 
+     */
 
-    public void selectionSortByName(LinkedList<BabysitterModel> babysitterList, JFrame parentFrame) {
-        if (!validateListForSorting(babysitterList, parentFrame)) {
+    public void selectionSortByName(LinkedList<BabysitterModel> unsortedData, boolean isAsc,JFrame parentFrame) {
+        if (!validateListForSorting(unsortedData, parentFrame)) {
             return;
         }
         //convert linked list to arraylist
-        babysitterArrayList = new ArrayList<>(babysitterList);
-        for (int i = 0; i < babysitterArrayList.size() - 1; i++) {
+        dataToSort = new ArrayList<>(unsortedData);
+        for (int i = 0; i < dataToSort.size() - 1; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < babysitterArrayList.size(); j++) {
-                if (babysitterArrayList.get(j).getName()
-                        .compareToIgnoreCase(babysitterArrayList.get(minIndex).getName()) < 0) {
+            for (int j = i + 1; j < dataToSort.size(); j++) {
+                
+                if(isAsc){
+                if (dataToSort.get(j).getName()
+                        .compareToIgnoreCase(dataToSort.get(minIndex).getName()) < 0) {
                     minIndex = j;
+                }
+                }else{
+                    if(dataToSort.get(j).getName()
+                            .compareToIgnoreCase(dataToSort.get(minIndex).getName())>0){
+                        minIndex=j;
+                    }
                 }
 
             }
             // Swapping elements
             if (minIndex != i) {
-                BabysitterModel temp = babysitterArrayList.get(i);
-                babysitterArrayList.set(i, babysitterArrayList.get(minIndex));
-                babysitterArrayList.set(minIndex, temp);
+                BabysitterModel temp = dataToSort.get(i);
+                dataToSort.set(i, dataToSort.get(minIndex));
+                dataToSort.set(minIndex, temp);
             }
 
         }
         // Update the original LinkedList with sorted values
-        babysitterList.clear();
-        babysitterList.addAll(babysitterArrayList);
+        unsortedData.clear();
+        unsortedData.addAll(dataToSort);
     }
 
     /**
      * Validates if the list has more than one element for sorting. Displays an
      * error if the list is empty or contains only one item.
-     * @param babysitterList The list of BabysitterModel objects to be sorted.
+     * @param unsortedData The list of BabysitterModel objects to be sorted.
      * @param parentFrame The parent frame for displaying messages.
      * @return true if the list is valid for sorting, false otherwise.
      */
-    private boolean validateListForSorting(LinkedList<BabysitterModel> babysitterList, JFrame parentFrame) {
-        if (babysitterList.isEmpty()) {
+    private boolean validateListForSorting(LinkedList<BabysitterModel> unsortedData, JFrame parentFrame) {
+        if (unsortedData.isEmpty()) {
             JOptionPane.showMessageDialog(parentFrame, "No elements to sort.", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        if (babysitterList.size() == 1) {
+        if (unsortedData.size() == 1) {
             JOptionPane.showMessageDialog(parentFrame, "Only one item in the list. Sorting is not necessary.", "Information", JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
