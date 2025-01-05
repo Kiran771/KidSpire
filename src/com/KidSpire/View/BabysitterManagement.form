@@ -1363,8 +1363,8 @@
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="5">
                         <StringItem index="0" value="Sort by"/>
-                        <StringItem index="1" value=" Id"/>
-                        <StringItem index="2" value=" Name"/>
+                        <StringItem index="1" value="Id"/>
+                        <StringItem index="2" value="Name"/>
                         <StringItem index="3" value="Experience"/>
                         <StringItem index="4" value=" "/>
                       </StringArray>
@@ -1490,7 +1490,6 @@
                       <Dimension value="[1000, 330]"/>
                     </Property>
                     <Property name="showGrid" type="boolean" value="true"/>
-                    <Property name="showHorizontalLines" type="boolean" value="true"/>
                     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[1000, 330]"/>
                     </Property>

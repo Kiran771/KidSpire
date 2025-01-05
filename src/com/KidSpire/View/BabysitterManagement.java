@@ -641,7 +641,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         });
 
-        cbSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sort by", " Id", " Name", "Experience", " " }));
+        cbSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sort by", "Id", "Name", "Experience", " " }));
         cbSort.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         cbSort.setMaximumSize(new java.awt.Dimension(148, 31));
         cbSort.setMinimumSize(new java.awt.Dimension(148, 31));
@@ -804,7 +804,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
         tblToDisplayBabysitterInfo.setMinimumSize(new java.awt.Dimension(1000, 330));
         tblToDisplayBabysitterInfo.setPreferredSize(new java.awt.Dimension(1000, 330));
         tblToDisplayBabysitterInfo.setShowGrid(true);
-        tblToDisplayBabysitterInfo.setShowHorizontalLines(true);
         tblToDisplayBabysitterInfo.setSize(new java.awt.Dimension(1000, 330));
         tblToDisplayBabysitterInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1325,7 +1324,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
      */
     private void cbSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSortActionPerformed
 
-        String sortBy = (String) cbSort.getSelectedItem();
+        String sortBy = ((String) cbSort.getSelectedItem()).trim();
+        
         if (sortBy.equalsIgnoreCase("Sort By")) {
             JOptionPane.showMessageDialog(this, "Please select a valid sorting option.", "Error", JOptionPane.ERROR_MESSAGE);
             return; 
@@ -1335,6 +1335,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             loadDetailsToTable(babysitterList);
         
         }else if(sortBy.equalsIgnoreCase("Name")){
+            
             sorting.selectionSortByName(babysitterList, this);
             loadDetailsToTable(babysitterList);
         }
