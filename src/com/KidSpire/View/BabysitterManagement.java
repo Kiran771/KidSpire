@@ -941,6 +941,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         BabysitterModel babysitter= new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com");
         babysitterList.add(babysitter);
         addSampleBabysitter(babysitter);
+//        loadDetailsToTable(babysitterList);
 //        addSampleBabysitter(new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com"));
 //        addSampleBabysitter(new BabysitterModel(23457,"Sunaina",(short) 23,"9876453450",2,"Kamalpokhari","sunaina@gmail.com"));
 //        addSampleBabysitter(new BabysitterModel(23458,"Bidhya",(short) 25,"9868963210",4,"Baneshwor","bidhya@gmail.com"));
@@ -1144,7 +1145,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             // Check for duplicate Babysitter Id
             if (checkDuplicateStudent(newBabysitter)) {
                 txtFieldBabysitterId.setBorder(createLineBorder(errorColor));
-                showDialogBox("LMU ID already exists.", "Duplicate Entry", JOptionPane.WARNING_MESSAGE);
+                showDialogBox("Baby sitter ID already exists.", "Duplicate Entry", JOptionPane.WARNING_MESSAGE);
             } else {
                 // Add the babysitter if no duplicate is found
                 babysitterList.add(newBabysitter);
