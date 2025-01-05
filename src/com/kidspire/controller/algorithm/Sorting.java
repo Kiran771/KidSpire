@@ -102,5 +102,10 @@ public class Sorting {
         System.out.println("After sorting: " + babysitterArrayList);
 
     }
-    
+    public void selectionSortByName(LinkedList<BabysitterModel> babysitterList, String selectedSortOption, JFrame parentFrame){
+       babysitterArrayList = new ArrayList<>(babysitterList); 
+       for (int i = 0; i < babysitterArrayList.size()-1; i++) {
+           int minValue=i;
+       }
+    }
 }

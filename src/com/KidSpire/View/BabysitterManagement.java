@@ -35,6 +35,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         loadLoginScreen();
         initializeLayout();
         startProgress();
+        initializeData();
         sorting = new Sorting();
 
         babysitterList = new LinkedList<>();
@@ -912,6 +913,20 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void loadScreen(String screenName) {
         cardLayout.show(getContentPane(), screenName);
     }
+    
+    /**
+     * Initializes the application's data, including the babysitter list and table.
+     * Populates the babysitter list with sample data for demonstration purposes.
+     */
+    private void initializeData() {
+        babysitterList = new LinkedList<>();
+
+        // 
+        addSampleBabysitter(new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com"));
+        addSampleBabysitter(new BabysitterModel(23457,"Sunaina",(short) 23,"9876453450",2,"Kamalpokhari","sunaina@gmail.com"));
+        addSampleBabysitter(new BabysitterModel(23458,"Bidhya",(short) 25,"9868963210",4,"Baneshwor","bidhya@gmail.com"));
+        
+}
 
     /**
      * Simulates the loading progress using a SwingWorker thread. Updates a
@@ -944,6 +959,17 @@ public class BabysitterManagement extends javax.swing.JFrame {
         };
         worker.execute(); // Start the worker thread
     }
+    
+    // Method to add student data and populate the table
+    private void addSampleBabysitter(BabysitterModel babysitter) {
+        babysitterList.add(babysitter);
+        DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
+        model.addRow(new Object[]{
+            babysitter.getBabysitterId(), babysitter.getName(), babysitter.getAge(),
+            babysitter.getContact(), babysitter.getExperience(),babysitter.getAddress(),babysitter.getEmail()
+        });
+    }
+
 
 
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
@@ -1095,7 +1121,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 // Add the babysitter if no duplicate is found
                 babysitterList.add(newBabysitter);
                 clearBabysitterForm();
-                loadListToTable(babysitterList);
+                loadDetailsToTable(babysitterList);
 
                 showDialogBox("Babysitter added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -1176,7 +1202,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 babysitterList.set(selectedRow, udatedBabysitter);
                 clearBabysitterForm();
                 // Refresh the table
-                loadListToTable(babysitterList);
+                loadDetailsToTable(babysitterList);
                 showMessageBox("Babysitter updated successfully", "Updated", JOptionPane.INFORMATION_MESSAGE);
 
             }
@@ -1275,7 +1301,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             return; // Do nothing if "Sort By" is selected
         }
         sorting.InsertionSortBy(babysitterList, sortBy, this);
-        loadListToTable(babysitterList);
+        loadDetailsToTable(babysitterList);
 
     }//GEN-LAST:event_cbSortActionPerformed
 
@@ -1287,7 +1313,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * Populates the JTable with the current list of Babysitter records. Clears
      * existing rows in the table model before adding new data.
      */
-    private void loadListToTable(LinkedList<BabysitterModel> babysitterList) {
+    private void loadDetailsToTable(LinkedList<BabysitterModel> babysitterList) {
         DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
 
         // Clear existing rows if needed
