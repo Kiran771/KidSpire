@@ -19,17 +19,18 @@ import javax.swing.JOptionPane;
  */
 public class Sorting {
 
-    private List<BabysitterModel> dataToSort;
-
-    public Sorting() {
-        dataToSort = new ArrayList<>();
-
-    }
+    private ArrayList<BabysitterModel> dataToSort;
 
     /**
+     * Sorts the babysitter data by experience using the insertion sort
+     * algorithm in ascending or descending order.
      *
-     * @param unsortedData
-     * @param parentFrame
+     * @param unsortedData The LinkedList of BabysitterModel objects to be
+     * sorted.
+     * @param isAsc A Boolean flag indicating the sorting order; true for
+     * ascending, false for descending.
+     * @param parentFrame The parent JFrame used for validation or displaying
+     * any relevant UI during sorting.
      */
     public void InsertionSortByExperience(LinkedList<BabysitterModel> unsortedData, boolean isAsc, JFrame parentFrame) {
         if (!validateListForSorting(unsortedData, parentFrame)) {
@@ -118,6 +119,73 @@ public class Sorting {
         unsortedData.addAll(dataToSort);
     }
 
+    public void mergeSortById(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
+
+        dataToSort = new ArrayList<>(unsortedData);
+        ArrayList<BabysitterModel> sortedData = mergeSortRecursive(dataToSort, isAsc);
+
+        unsortedData.clear();
+        unsortedData.addAll(sortedData);
+    }
+
+    public ArrayList<BabysitterModel> mergeSortRecursive(ArrayList<BabysitterModel> dataToSort, boolean isAsc) {
+
+        if (dataToSort.size() <= 1) {
+            return dataToSort;
+
+        }
+
+        int mid = dataToSort.size() / 2;
+
+        //create new arraylist leftPart and RightPart
+        ArrayList<BabysitterModel> leftPart = new ArrayList<>(dataToSort.subList(0, mid));
+        ArrayList<BabysitterModel> rightPart = new ArrayList<>(dataToSort.subList(mid, dataToSort.size()));
+
+        //recurcively  sort the halves
+        leftPart = mergeSortRecursive(leftPart, isAsc);
+        rightPart = mergeSortRecursive(rightPart, isAsc);
+
+        //merge the sorted halves
+        return merge(leftPart, rightPart, isAsc);
+
+    }
+
+    private ArrayList<BabysitterModel> merge(ArrayList<BabysitterModel> leftPart, ArrayList<BabysitterModel> rightPart, boolean isAsc) {
+        ArrayList<BabysitterModel> mergedResult = new ArrayList<>();
+        int leftIndex = 0;
+        int rightIndex = 0;
+        while (leftIndex < leftPart.size() && rightIndex < rightPart.size()) {
+            if (isAsc) {
+                if (leftPart.get(leftIndex).getBabysitterId() < rightPart.get(rightIndex).getBabysitterId()) {
+                    mergedResult.add(leftPart.get(leftIndex));
+                    leftIndex++;
+                } else {
+                    mergedResult.add(rightPart.get(rightIndex));
+                    rightIndex++;
+                }
+            } else {
+                if (leftPart.get(leftIndex).getBabysitterId() > rightPart.get(rightIndex).getBabysitterId()) {
+                    mergedResult.add(leftPart.get(leftIndex));
+                    leftIndex++;
+                } else {
+                    mergedResult.add(rightPart.get(rightIndex));
+                    rightIndex++;
+                }
+
+            }
+
+        }
+        while (leftIndex < leftPart.size()) {
+            mergedResult.add(leftPart.get(leftIndex));
+            leftIndex++;
+        }
+        while (rightIndex < rightPart.size()) {
+            mergedResult.add(rightPart.get(rightIndex));
+            rightIndex++;
+        }
+        return mergedResult;
+    }
+
     /**
      * Validates if the list has more than one element for sorting. Displays an
      * error if the list is empty or contains only one item.
@@ -135,7 +203,7 @@ public class Sorting {
             JOptionPane.showMessageDialog(parentFrame, "Only one item in the list. Sorting is not necessary.", "Information", JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
-       
+
         return true;
     }
 }

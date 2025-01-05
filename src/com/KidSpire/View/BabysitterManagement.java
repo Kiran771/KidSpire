@@ -641,7 +641,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         });
 
-        cbSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sort by", "Id", "Name(Ascending)", "Name(Descending)", "Experience(Descending)", "Experience(Ascending)", " " }));
+        cbSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sort by", "Id(Ascending)", "Id(Descending)", "Name(Ascending)", "Name(Descending)", "Experience(Descending)", "Experience(Ascending)", " " }));
         cbSort.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         cbSort.setMaximumSize(new java.awt.Dimension(148, 31));
         cbSort.setMinimumSize(new java.awt.Dimension(148, 31));
@@ -1342,6 +1342,11 @@ public class BabysitterManagement extends javax.swing.JFrame {
 
             sorting.selectionSortByName(babysitterList, false, this);
 
+        }else if(sortBy.equalsIgnoreCase("Id(Ascending)")){
+            sorting.mergeSortById(babysitterList, true);
+        
+        }else if(sortBy.equalsIgnoreCase("Id(Descending)")){
+            sorting.mergeSortById(babysitterList, false);
         }
         loadDetailsToTable(babysitterList);
 
