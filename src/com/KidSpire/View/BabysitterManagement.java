@@ -784,7 +784,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
 
         tblPnl.setBackground(new java.awt.Color(204, 204, 204));
 
-        tblToDisplayBabysitterInfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tblToDisplayBabysitterInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -804,6 +803,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
         tblToDisplayBabysitterInfo.setMaximumSize(new java.awt.Dimension(1000, 330));
         tblToDisplayBabysitterInfo.setMinimumSize(new java.awt.Dimension(1000, 330));
         tblToDisplayBabysitterInfo.setPreferredSize(new java.awt.Dimension(1000, 330));
+        tblToDisplayBabysitterInfo.setShowGrid(true);
+        tblToDisplayBabysitterInfo.setShowHorizontalLines(true);
         tblToDisplayBabysitterInfo.setSize(new java.awt.Dimension(1000, 330));
         tblToDisplayBabysitterInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -936,13 +937,14 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * Populates the babysitter list with sample data for demonstration purposes.
      */
     private void initializeData() {
-        
-        
         // 
-        addSampleBabysitter(new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com"));
-        addSampleBabysitter(new BabysitterModel(23457,"Sunaina",(short) 23,"9876453450",2,"Kamalpokhari","sunaina@gmail.com"));
-        addSampleBabysitter(new BabysitterModel(23458,"Bidhya",(short) 25,"9868963210",4,"Baneshwor","bidhya@gmail.com"));
-        
+        BabysitterModel babysitter= new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com");
+        babysitterList.add(babysitter);
+        addSampleBabysitter(babysitter);
+//        addSampleBabysitter(new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com"));
+//        addSampleBabysitter(new BabysitterModel(23457,"Sunaina",(short) 23,"9876453450",2,"Kamalpokhari","sunaina@gmail.com"));
+//        addSampleBabysitter(new BabysitterModel(23458,"Bidhya",(short) 25,"9868963210",4,"Baneshwor","bidhya@gmail.com"));
+//        
 }
 
     /**
@@ -979,14 +981,21 @@ public class BabysitterManagement extends javax.swing.JFrame {
     
     // Method to add student data and populate the table
     private void addSampleBabysitter(BabysitterModel babysitter) {
-        babysitterList.add(babysitter);
-        System.out.println(babysitter.getBabysitterId());
-        DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
-        model.addRow(new Object[]{
-            babysitter.getBabysitterId(), babysitter.getName(), babysitter.getAge(),
-            babysitter.getExperience(),babysitter.getAddress(),babysitter.getContact(),babysitter.getEmail()
-        });
-         
+        //babysitterList.add(babysitter);
+//         defaultTableModel = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
+//        defaultTableModel.addRow(new Object[]{
+//            babysitter.getBabysitterId(), babysitter.getName(), babysitter.getAge(),
+//            babysitter.getExperience(),babysitter.getAddress(),babysitter.getContact(),babysitter.getEmail()
+//        }); 
+       DefaultTableModel model= (DefaultTableModel) tblToDisplayBabysitterInfo.getModel(); model.addRow(new Object[]{
+           babysitter.getBabysitterId(),
+           babysitter.getName(),
+           babysitter.getAge(),
+           babysitter.getExperience(),
+           babysitter.getAddress(),
+           babysitter.getContact(),
+           babysitter.getEmail()
+       });
     }
 
 
