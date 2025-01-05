@@ -33,7 +33,6 @@ public class BabysitterModel {
      * @param address the residential address of the babysitter
      * @param email the email address of the babysitter
      */
-
     public BabysitterModel(int babysitterId, String name, short age, String contact, int experience, String address, String email) {
         this.babysitterId = babysitterId;
         this.name = name;
@@ -42,6 +41,15 @@ public class BabysitterModel {
         this.experience = experience;
         this.address = address;
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "BabysitterModel{"
+                + "id=" + babysitterId
+                + ", name='" + name + '\''
+                + ", experience=" + experience
+                + '}';
     }
 
     /**
@@ -58,7 +66,6 @@ public class BabysitterModel {
      *
      * @return the babysitters name
      */
-
     public String getName() {
         return name;
     }
@@ -77,7 +84,6 @@ public class BabysitterModel {
      *
      * @return the babysitters address
      */
-
     public String getAddress() {
         return address;
     }
@@ -87,7 +93,6 @@ public class BabysitterModel {
      *
      * @return the babysitters contact
      */
-
     public String getContact() {
         return contact;
     }
@@ -97,7 +102,6 @@ public class BabysitterModel {
      *
      * @return the babysitters experience
      */
-
     public int getExperience() {
         return experience;
     }
@@ -107,7 +111,6 @@ public class BabysitterModel {
      *
      * @return the babysitters email
      */
-
     public String getEmail() {
         return email;
     }
@@ -117,7 +120,6 @@ public class BabysitterModel {
      *
      * @param babysitterId the new unique ID to assign to the babysitter
      */
-
     public void setBabysitterId(int babysitterId) {
         this.babysitterId = babysitterId;
     }
@@ -136,7 +138,6 @@ public class BabysitterModel {
      *
      * @param age the age to assign to babysitter
      */
-
     public void setAge(short age) {
         this.age = age;
     }
@@ -146,7 +147,6 @@ public class BabysitterModel {
      *
      * @param address the age to assign to babysitter
      */
-
     public void setAddress(String address) {
         this.address = address;
     }
@@ -156,7 +156,6 @@ public class BabysitterModel {
      *
      * @param contact the age to assign to babysitter
      */
-
     public void setContact(String contact) {
         this.contact = contact;
     }
@@ -166,7 +165,6 @@ public class BabysitterModel {
      *
      * @param experience the age to assign to babysitter
      */
-
     public void setExperience(int experience) {
         this.experience = experience;
     }
@@ -176,7 +174,6 @@ public class BabysitterModel {
      *
      * @param email the age to assign to babysitter
      */
-
     public void setEmail(String email) {
         this.email = email;
     }

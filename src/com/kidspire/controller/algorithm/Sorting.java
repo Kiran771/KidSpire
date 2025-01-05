@@ -30,7 +30,8 @@ public class Sorting {
      * Sorts the provided list of babysitter objects based on the specified
      * criteria. Displays an error message if the list is empty or if an invalid
      * sorting criterion is provided.
-     *
+     *The comparison return integer value i.e. +ve value when sorted value is greater than currentValue ,
+     * -ve when sorted value is already in sorted position and 0 when both values are equal
      * @param babysitterList The list of BabysitterModel objects that need to be
      * sorted.
      * @param selectedSortOption The sorting criteria selected by the user.
@@ -51,9 +52,10 @@ public class Sorting {
             JOptionPane.showMessageDialog(parentFrame, "Only one item in the list. Sorting is not necessary.", "Information", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        
+
         //convert linked list to arraylist
         babysitterArrayList = new ArrayList<>(babysitterList);
+        System.out.println("Before sorting: " + babysitterArrayList);
 
         for (int i = 1; i < babysitterArrayList.size(); i++) {
             BabysitterModel currentValue = babysitterArrayList.get(i);
@@ -62,12 +64,25 @@ public class Sorting {
                 boolean shouldSwap = false;
                 if ("id".equalsIgnoreCase(selectedSortOption)) {
                     shouldSwap = currentValue.getBabysitterId() < babysitterArrayList.get(sortedIndex).getBabysitterId();
+                    
                 } else if ("Name".equalsIgnoreCase(selectedSortOption)) {
-                    shouldSwap = currentValue.getName()
-                            .compareToIgnoreCase(babysitterArrayList.get(sortedIndex).getName()) < 0;
+                    
+                    int nameComparison = currentValue.getName()
+                            .compareToIgnoreCase(babysitterArrayList.get(sortedIndex).getName());
 
+                    if (nameComparison < 0) {
+                        shouldSwap = true;
+                    } else if (nameComparison == 0) {
+
+                        shouldSwap = currentValue.getBabysitterId() < babysitterArrayList.get(sortedIndex).getBabysitterId();
+                    }
                 } else if ("Experience".equalsIgnoreCase(selectedSortOption)) {
-                    shouldSwap = currentValue.getExperience() > babysitterArrayList.get(sortedIndex).getExperience();
+                    if (currentValue.getExperience() > babysitterArrayList.get(sortedIndex).getExperience()) {
+                        shouldSwap = true; 
+                    } else if (currentValue.getExperience() == babysitterArrayList.get(sortedIndex).getExperience()) {
+                        
+                        shouldSwap = currentValue.getBabysitterId() < babysitterArrayList.get(sortedIndex).getBabysitterId();
+                    }
                 }
                 //break the loop when no further swap is needed 
                 if (!shouldSwap) {
@@ -84,6 +99,7 @@ public class Sorting {
         // Update the LinkedList with sorted elements
         babysitterList.clear();
         babysitterList.addAll(babysitterArrayList);
+        System.out.println("After sorting: " + babysitterArrayList);
 
     }
 }
