@@ -1176,8 +1176,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
         int selectedRow = tblToDisplayBabysitterInfo.getSelectedRow();
         //Check if no row is selected
         if (selectedRow == -1) {
-            showMessageBox("Select a row to update data from a table", "Select row", JOptionPane.WARNING_MESSAGE);
-            return;// Stop execution if no row is selected
+            showMessageBox("Select a row to update data from a table", "Row not selected", JOptionPane.WARNING_MESSAGE);
+            return;
         }
 
         // Validate Name
@@ -1264,7 +1264,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             int selectedRow = tblToDisplayBabysitterInfo.getSelectedRow();
             //Check if no row is selected
             if (selectedRow == -1) {
-                showMessageBox("Select a row to delete data from table", "Select row", JOptionPane.WARNING_MESSAGE);
+                showMessageBox("Select a row to delete data from table", "Row not selected", JOptionPane.WARNING_MESSAGE);
                 return;// Stop execution if no row is selected
             }
             DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
