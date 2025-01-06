@@ -17,6 +17,14 @@ import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * This class represents the Babysitter Management GUI, designed to manage
+ * babysitter information It enables CRUD operations (Create, Read, Update,
+ * Delete) for maintaining babysitter records. User login authentication
+ * Interactive GUI for performing actions such as adding, updating,
+ * deleting,viewing,sorting, searching babysitter details. Includes an
+ * ActionPerformed method to handle button clicks and other user actions within
+ * the GUI. The system ensures efficient management of babysitter information
+ * while maintaining data integrity.
  *
  * @author kiransaud 23048603
  */
@@ -621,6 +629,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         pnlSearchSort.setPreferredSize(new java.awt.Dimension(320, 65));
         pnlSearchSort.setSize(new java.awt.Dimension(320, 65));
 
+        btnSearch.setText("S");
         btnSearch.setMaximumSize(new java.awt.Dimension(44, 31));
         btnSearch.setMinimumSize(new java.awt.Dimension(44, 31));
         btnSearch.setPreferredSize(new java.awt.Dimension(44, 31));
@@ -673,7 +682,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(cbSort, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cbSort, 0, 158, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlSearchSortLayout.setVerticalGroup(
@@ -695,7 +704,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFormLayout.createSequentialGroup()
-                        .addComponent(pnlSearchSort, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlSearchSort, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -987,18 +996,28 @@ public class BabysitterManagement extends javax.swing.JFrame {
         worker.execute(); // Start the worker thread
     }
 
+    /**
+     * Set the password and userName field empty AND load LoginScreen
+     *
+     * @param evt The event triggered when logout button is clicked
+     */
+
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
         txtFldPassword.setText("");
         txtFldUserName.setText("");
         loadScreen("LoginScreen"); // Load the main screen
     }//GEN-LAST:event_logOutBtnActionPerformed
-
+    /**
+     * Load to form Screen
+     *
+     * @param evt The event triggered when Babysitter button is clicked
+     */
     private void btnGoToFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToFormActionPerformed
         loadScreen("BabysitterScreen"); //Load Babysitter screen 
     }//GEN-LAST:event_btnGoToFormActionPerformed
 
     /**
-     * login admin in the system by checking whether the entered username and
+     * login admin to the system by checking whether the entered username and
      * password are correct or not
      *
      * @param evt The event triggered by login button
@@ -1299,11 +1318,15 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void txtFldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFldSearchActionPerformed
-
+    /**
+     * Handles search by ID or name based on user input.
+     *
+     * @param evt The event triggered when Search button is clicked
+     */
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         search = new BinarySearch();
         String searchValue = txtFldSearch.getText().trim();
-        System.out.println("Search Value: " + searchValue);
+
         if (searchValue.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter a value to Search.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -1311,22 +1334,19 @@ public class BabysitterManagement extends javax.swing.JFrame {
         if (isInteger(searchValue)) {
             int searchId = Integer.parseInt(searchValue);
             List<BabysitterModel> searchById = search.searchById(searchId, babysitterList);
+
             if (searchById.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
-
-            }else{
+            } else {
                 LinkedList<BabysitterModel> linkedSearchId = new LinkedList<>(searchById);
                 loadDetailsToTable(linkedSearchId);
             }
-        }else{
-
+        } else {
             List<BabysitterModel> searchName = search.searchByName(searchValue, babysitterList);
-            System.out.println("Search Results: " + searchName.size());
 
             if (searchName.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
-
-            }else{
+            } else {
                 LinkedList<BabysitterModel> linkedSearchName = new LinkedList<>(searchName);
                 loadDetailsToTable(linkedSearchName);
             }
@@ -1384,7 +1404,12 @@ public class BabysitterManagement extends javax.swing.JFrame {
             txtFldSearch.setText("");
         }
     }//GEN-LAST:event_txtFldSearchKeyTyped
-
+    /**
+     * Checks if the input string can be parsed as an integer.
+     *
+     * @param searchValue The string to be checked
+     * @return true if the string is an integer, false otherwise
+     */
     private boolean isInteger(String searchValue) {
         try {
             Integer.parseInt(searchValue);

@@ -624,7 +624,7 @@
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="pnlSearchSort" min="-2" pref="431" max="-2" attributes="0"/>
+                              <Component id="pnlSearchSort" min="-2" pref="441" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="addBtn" min="-2" pref="84" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1294,7 +1294,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnSearch" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="cbSort" max="32767" attributes="0"/>
+                          <Component id="cbSort" pref="158" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1316,6 +1316,7 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="btnSearch">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="S"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[44, 31]"/>
                     </Property>

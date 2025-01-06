@@ -12,10 +12,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * Class is used to sort the data according to id , name and experience of the
- * babysitter 23048603
+ * This class provides sorting algorithms for sorting babysitter data based on
+ * ID, name, and experience using techniques such as Insertion Sort, Selection
+ * Sort, and Merge Sort. It supports both ascending and descending order and
+ * includes validation for the input data before sorting. babysitter
  *
- * @author kiransaud
+ * @author kiransaud 23048603
  */
 public class Sorting {
 
@@ -23,7 +25,7 @@ public class Sorting {
 
     /**
      * Sorts the babysitter data by experience using the insertion sort
-     * algorithm in ascending or descending order.
+     * algorithm in ascending or descending order
      *
      * @param unsortedData The LinkedList of BabysitterModel objects to be
      * sorted.
@@ -32,8 +34,8 @@ public class Sorting {
      *
      */
     public List<BabysitterModel> InsertionSortByExperience(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
-        
-        List<BabysitterModel> dataToSort=new ArrayList<>();
+
+        List<BabysitterModel> dataToSort = new ArrayList<>();
         //convert linked list to arraylist
         dataToSort.addAll(unsortedData);
 
@@ -68,7 +70,7 @@ public class Sorting {
         // Update the LinkedList with sorted elements
         unsortedData.clear();
         unsortedData.addAll(dataToSort);
-        
+
         return dataToSort;
 
     }
@@ -79,12 +81,12 @@ public class Sorting {
      *
      * @param unsortedData The LinkedList to be sorted.
      * @param isAsc True for ascending order, false for descending order.
-     * 
+     *
      */
     public List<BabysitterModel> selectionSortByName(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
-        
+
         //convert linked list to arraylist
-        List <BabysitterModel>dataToSort = new ArrayList<>();
+        List<BabysitterModel> dataToSort = new ArrayList<>();
         dataToSort.addAll(unsortedData);
         for (int i = 0; i < dataToSort.size() - 1; i++) {
             int minIndex = i;
@@ -113,10 +115,9 @@ public class Sorting {
         }
         unsortedData.clear();
         unsortedData.addAll(dataToSort);
-        
+
         return dataToSort;
-        
-        
+
     }
 
     public List<BabysitterModel> mergeSortById(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
@@ -126,10 +127,18 @@ public class Sorting {
 
         unsortedData.clear();
         unsortedData.addAll(sortedData);
-        
+
         return sortedData;
     }
 
+    /**
+     * Sorts a list using the recursive merge sort algorithm
+     *
+     * @param dataToSort The list to be sorted
+     * @param isAsc Specifies whether the sorting should be in ascending (true)
+     * or descending (false) order
+     * @return The sorted list
+     */
     public List<BabysitterModel> mergeSortRecursive(List<BabysitterModel> dataToSort, boolean isAsc) {
 
         if (dataToSort.size() <= 1) {
@@ -147,13 +156,22 @@ public class Sorting {
         leftPart = mergeSortRecursive(leftPart, isAsc);
         rightPart = mergeSortRecursive(rightPart, isAsc);
 
-        //merge the sorted halves
+        //merge the sorted halves 
         return merge(leftPart, rightPart, isAsc);
 
     }
 
+    /**
+     * Merges two sorted lists into a single sorted list using merge sort logic.
+     *
+     * @param leftPart The left half of the list
+     * @param rightPart The right half of the list
+     * @param isAsc Specifies whether the sorting should be in ascending i.e.
+     * true or descending i.e. false
+     * @return The merged and sorted list
+     */
     private List<BabysitterModel> merge(List<BabysitterModel> leftPart, List<BabysitterModel> rightPart, boolean isAsc) {
-        
+
         List<BabysitterModel> mergedResult = new ArrayList<>();
         int leftIndex = 0;
         int rightIndex = 0;
@@ -189,24 +207,4 @@ public class Sorting {
         return mergedResult;
     }
 
-    /**
-     * Validates if the list has more than one element for sorting. Displays an
-     * error if the list is empty or contains only one item.
-     *
-     * @param unsortedData The list of BabysitterModel objects to be sorted.
-     * @param parentFrame The parent frame for displaying messages.
-     * @return true if the list is valid for sorting, false otherwise.
-     */
-    private boolean validateListForSorting(LinkedList<BabysitterModel> unsortedData, JFrame parentFrame) {
-        if (unsortedData.isEmpty()) {
-            JOptionPane.showMessageDialog(parentFrame, "No elements to sort.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if (unsortedData.size() == 1) {
-            JOptionPane.showMessageDialog(parentFrame, "Only one item in the list. Sorting is not necessary.", "Information", JOptionPane.INFORMATION_MESSAGE);
-            return false;
-        }
-
-        return true;
-    }
 }
