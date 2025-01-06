@@ -119,16 +119,18 @@ public class Sorting {
         
     }
 
-    public void mergeSortById(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
+    public List<BabysitterModel> mergeSortById(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
 
-        dataToSort = new ArrayList<>(unsortedData);
-        ArrayList<BabysitterModel> sortedData = mergeSortRecursive(dataToSort, isAsc);
+        List<BabysitterModel> dataToSort = new ArrayList<>(unsortedData);
+        List<BabysitterModel> sortedData = mergeSortRecursive(dataToSort, isAsc);
 
         unsortedData.clear();
         unsortedData.addAll(sortedData);
+        
+        return sortedData;
     }
 
-    public ArrayList<BabysitterModel> mergeSortRecursive(ArrayList<BabysitterModel> dataToSort, boolean isAsc) {
+    public List<BabysitterModel> mergeSortRecursive(List<BabysitterModel> dataToSort, boolean isAsc) {
 
         if (dataToSort.size() <= 1) {
             return dataToSort;
@@ -137,9 +139,9 @@ public class Sorting {
 
         int mid = dataToSort.size() / 2;
 
-        //create new arraylist leftPart and RightPart
-        ArrayList<BabysitterModel> leftPart = new ArrayList<>(dataToSort.subList(0, mid));
-        ArrayList<BabysitterModel> rightPart = new ArrayList<>(dataToSort.subList(mid, dataToSort.size()));
+        //create new list leftPart and RightPart
+        List<BabysitterModel> leftPart = new ArrayList<>(dataToSort.subList(0, mid));
+        List<BabysitterModel> rightPart = new ArrayList<>(dataToSort.subList(mid, dataToSort.size()));
 
         //recurcively  sort the halves
         leftPart = mergeSortRecursive(leftPart, isAsc);
@@ -150,8 +152,9 @@ public class Sorting {
 
     }
 
-    private ArrayList<BabysitterModel> merge(ArrayList<BabysitterModel> leftPart, ArrayList<BabysitterModel> rightPart, boolean isAsc) {
-        ArrayList<BabysitterModel> mergedResult = new ArrayList<>();
+    private List<BabysitterModel> merge(List<BabysitterModel> leftPart, List<BabysitterModel> rightPart, boolean isAsc) {
+        
+        List<BabysitterModel> mergedResult = new ArrayList<>();
         int leftIndex = 0;
         int rightIndex = 0;
         while (leftIndex < leftPart.size() && rightIndex < rightPart.size()) {

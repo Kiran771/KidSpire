@@ -631,7 +631,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         });
 
-        txtFldSearch.setText("Search......");
+        txtFldSearch.setText("Search...");
         txtFldSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtFldSearch.setMaximumSize(new java.awt.Dimension(205, 31));
         txtFldSearch.setMinimumSize(new java.awt.Dimension(205, 31));
@@ -1301,26 +1301,38 @@ public class BabysitterManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFldSearchActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-         search=new BinarySearch();
-        String searchValue= txtFldSearch.getText().trim();
-        if(searchValue.isEmpty()){
+        search = new BinarySearch();
+        String searchValue = txtFldSearch.getText().trim();
+        System.out.println("Search Value: " + searchValue);
+        if (searchValue.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter a value to Search.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        List<BabysitterModel> searchResults = search.SearchByName(searchValue, babysitterList);
-        
-        LinkedList<BabysitterModel> linkedSearchResults = new LinkedList<>(searchResults);
-        if(searchResults.isEmpty()){
-            JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
-        
+        if (isInteger(searchValue)) {
+            int searchId = Integer.parseInt(searchValue);
+            List<BabysitterModel> searchById = search.searchById(searchId, babysitterList);
+            if (searchById.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
+
+            }else{
+                LinkedList<BabysitterModel> linkedSearchId = new LinkedList<>(searchById);
+                loadDetailsToTable(linkedSearchId);
+            }
         }else{
-            loadDetailsToTable(linkedSearchResults); 
+
+            List<BabysitterModel> searchName = search.searchByName(searchValue, babysitterList);
+            System.out.println("Search Results: " + searchName.size());
+
+            if (searchName.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
+
+            }else{
+                LinkedList<BabysitterModel> linkedSearchName = new LinkedList<>(searchName);
+                loadDetailsToTable(linkedSearchName);
+            }
         }
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_btnSearchActionPerformed
     /**
      * Handles the action event when options in combo box are selected
@@ -1364,14 +1376,23 @@ public class BabysitterManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFldPasswordActionPerformed
 
     private void txtFldSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFldSearchKeyPressed
-      
+
     }//GEN-LAST:event_txtFldSearchKeyPressed
 
     private void txtFldSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFldSearchKeyTyped
         if (txtFldSearch.getText().equals("Search...")) {
-            txtFldSearch.setText(""); 
+            txtFldSearch.setText("");
         }
     }//GEN-LAST:event_txtFldSearchKeyTyped
+
+    private boolean isInteger(String searchValue) {
+        try {
+            Integer.parseInt(searchValue);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
     /**
      * Populates the JTable with the current list of Babysitter records. Clears

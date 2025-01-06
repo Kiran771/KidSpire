@@ -14,14 +14,16 @@ import java.util.List;
  * @author kiransaud 23048603
  */
 public class BinarySearch {
+    private Sorting sort;
 
-    public List<BabysitterModel> SearchByName(String searchValue, LinkedList<BabysitterModel> searchData) {
+    public List<BabysitterModel> searchByName(String searchValue, LinkedList<BabysitterModel> searchData) {
         if (searchData == null || searchData.isEmpty()) {
             return new ArrayList<>();
         }
-        Sorting sorting = new Sorting();
+        sort = new Sorting();
+        
         //Get sorted data as arrayList
-        List<BabysitterModel>sortedData=sorting.selectionSortByName(searchData, true);
+        List<BabysitterModel> sortedData=sort.selectionSortByName(searchData, true);
        
         //convert the sorted arraylist to LinkedList
         searchData=new LinkedList<>(sortedData);
@@ -48,6 +50,41 @@ public class BinarySearch {
         return matchFound;
 
     }
+    public List<BabysitterModel> searchById(int searchValue, LinkedList<BabysitterModel> searchData){
+        if (searchData==null || searchData.isEmpty()){
+            return new ArrayList<>();
+        }
+        sort=new Sorting();
+        
+        List<BabysitterModel> sortedData=sort.mergeSortById(searchData, true);
+        
+        searchData=new LinkedList<>(sortedData);
+        
+        List<BabysitterModel> matchFound=new ArrayList();
+        
+        int startIndex=0;
+        int endIndex=searchData.size()-1;
+        
+        while(startIndex<=endIndex){
+            int midIndex=(startIndex+endIndex)/2;
+            
+            if(searchValue==searchData.get(midIndex).getBabysitterId()){
+                matchFound.add(searchData.get(midIndex));
+            
+            }
+            if(searchValue<searchData.get(midIndex).getBabysitterId()){
+                endIndex=midIndex-1;
+                
+            }else{
+                startIndex=midIndex+1;
+            }
+            
+        }
+        return matchFound;
+        
+        
+    }
+    
 
    
 
