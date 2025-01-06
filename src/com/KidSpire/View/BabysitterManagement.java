@@ -4,12 +4,14 @@
  */
 package com.kidspire.view;
 
+import com.kidspire.controller.algorithm.BinarySearch;
 import com.kidspire.model.BabysitterModel;
 import com.kidspire.util.ValidationUtil;
 import com.kidspire.controller.algorithm.Sorting;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import java.awt.Color;
+import java.util.List;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
@@ -26,6 +28,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private DefaultTableModel defaultTableModel;
     private LinkedList<BabysitterModel> babysitterList;
     private Sorting sorting; // Declare the instance variable for Sorting
+    private BinarySearch search;
 
     /**
      * Creates new form KidSpire
@@ -35,10 +38,9 @@ public class BabysitterManagement extends javax.swing.JFrame {
         loadLoginScreen();
         initializeLayout();
         startProgress();
-//        initializeData();
-        sorting = new Sorting();
-
         babysitterList = new LinkedList<>();
+        initializeData();
+        sorting = new Sorting();
 
     }
 
@@ -105,7 +107,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         mainScBtn = new javax.swing.JButton();
         pnlSearchSort = new javax.swing.JPanel();
         btnSearch = new javax.swing.JButton();
-        txtFldSearchBar = new javax.swing.JTextField();
+        txtFldSearch = new javax.swing.JTextField();
         cbSort = new javax.swing.JComboBox<>();
         tblPnl = new javax.swing.JPanel();
         spTblBabysitter = new javax.swing.JScrollPane();
@@ -629,15 +631,23 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         });
 
-        txtFldSearchBar.setText("Search......");
-        txtFldSearchBar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtFldSearchBar.setMaximumSize(new java.awt.Dimension(205, 31));
-        txtFldSearchBar.setMinimumSize(new java.awt.Dimension(205, 31));
-        txtFldSearchBar.setPreferredSize(new java.awt.Dimension(205, 31));
-        txtFldSearchBar.setSize(new java.awt.Dimension(205, 31));
-        txtFldSearchBar.addActionListener(new java.awt.event.ActionListener() {
+        txtFldSearch.setText("Search......");
+        txtFldSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtFldSearch.setMaximumSize(new java.awt.Dimension(205, 31));
+        txtFldSearch.setMinimumSize(new java.awt.Dimension(205, 31));
+        txtFldSearch.setPreferredSize(new java.awt.Dimension(205, 31));
+        txtFldSearch.setSize(new java.awt.Dimension(205, 31));
+        txtFldSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFldSearchBarActionPerformed(evt);
+                txtFldSearchActionPerformed(evt);
+            }
+        });
+        txtFldSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtFldSearchKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFldSearchKeyTyped(evt);
             }
         });
 
@@ -659,7 +669,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             pnlSearchSortLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSearchSortLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtFldSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtFldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -673,7 +683,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addGroup(pnlSearchSortLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cbSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtFldSearchBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtFldSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -886,6 +896,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
     private void loadLoginScreen() {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -936,13 +947,14 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * table. Populates the babysitter list with sample data for demonstration
      * purposes.
      */
-   private void initializeData() {
-        babysitterList.add( new BabysitterModel(23456, "Garima", (short) 26,"9854653250",3,"Kamalpokhari","garima@gmail.com"));
-        babysitterList.add(new BabysitterModel (23457,"Sunaina",(short) 24,"9875643210",4,"Hattiban","sunaina@gmail.com"));
-        babysitterList.add(new BabysitterModel(23458,"Bidhya",(short) 25,"9807654231",5,"Baneshwor","bidhya@gmail.com"));
+    private void initializeData() {
+        babysitterList.add(new BabysitterModel(23456, "Garima", (short) 26, "9854653250", 3, "Kamalpokhari", "garima@gmail.com"));
+        babysitterList.add(new BabysitterModel(23457, "Sunaina", (short) 24, "9875643210", 4, "Hattiban", "sunaina@gmail.com"));
+        babysitterList.add(new BabysitterModel(23458, "Bidhya", (short) 25, "9807654231", 5, "Baneshwor", "bidhya@gmail.com"));
         loadDetailsToTable(babysitterList);
-        
-   }
+
+    }
+
     /**
      * Simulates the loading progress using a SwingWorker thread. Updates a
      * progress bar incrementally and switches to the login screen upon
@@ -1284,12 +1296,31 @@ public class BabysitterManagement extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblToDisplayBabysitterInfoMouseClicked
 
-    private void txtFldSearchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldSearchBarActionPerformed
+    private void txtFldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFldSearchBarActionPerformed
+    }//GEN-LAST:event_txtFldSearchActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
+         search=new BinarySearch();
+        String searchValue= txtFldSearch.getText().trim();
+        if(searchValue.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please enter a value to Search.", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        List<BabysitterModel> searchResults = search.SearchByName(searchValue, babysitterList);
+        
+        LinkedList<BabysitterModel> linkedSearchResults = new LinkedList<>(searchResults);
+        if(searchResults.isEmpty()){
+            JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
+        
+        }else{
+            loadDetailsToTable(linkedSearchResults); 
+        }
+        
+        
+        
+        
     }//GEN-LAST:event_btnSearchActionPerformed
     /**
      * Handles the action event when options in combo box are selected
@@ -1305,23 +1336,23 @@ public class BabysitterManagement extends javax.swing.JFrame {
             return;
         }
         if (sortBy.equalsIgnoreCase("Experience(Ascending)")) {
-            sorting.InsertionSortByExperience(babysitterList, true, this);
+            sorting.InsertionSortByExperience(babysitterList, true);
 
         } else if (sortBy.equalsIgnoreCase("Experience(Descending)")) {
-            sorting.InsertionSortByExperience(babysitterList, false, this);
+            sorting.InsertionSortByExperience(babysitterList, false);
 
         } else if (sortBy.equalsIgnoreCase("Name(Ascending)")) {
 
-            sorting.selectionSortByName(babysitterList, true, this);
+            sorting.selectionSortByName(babysitterList, true);
 
         } else if (sortBy.equalsIgnoreCase("Name(Descending)")) {
 
-            sorting.selectionSortByName(babysitterList, false, this);
+            sorting.selectionSortByName(babysitterList, false);
 
-        }else if(sortBy.equalsIgnoreCase("Id(Ascending)")){
+        } else if (sortBy.equalsIgnoreCase("Id(Ascending)")) {
             sorting.mergeSortById(babysitterList, true);
-        
-        }else if(sortBy.equalsIgnoreCase("Id(Descending)")){
+
+        } else if (sortBy.equalsIgnoreCase("Id(Descending)")) {
             sorting.mergeSortById(babysitterList, false);
         }
         loadDetailsToTable(babysitterList);
@@ -1332,20 +1363,29 @@ public class BabysitterManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFldPasswordActionPerformed
 
+    private void txtFldSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFldSearchKeyPressed
+      
+    }//GEN-LAST:event_txtFldSearchKeyPressed
+
+    private void txtFldSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFldSearchKeyTyped
+        if (txtFldSearch.getText().equals("Search...")) {
+            txtFldSearch.setText(""); 
+        }
+    }//GEN-LAST:event_txtFldSearchKeyTyped
+
     /**
      * Populates the JTable with the current list of Babysitter records. Clears
      * existing rows in the table model before adding new data.
      */
     private void loadDetailsToTable(LinkedList<BabysitterModel> babysitterList) {
-    DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
 
-    // Clear existing rows if needed
-    model.setRowCount(0);
+        // Clear existing rows if needed
+        model.setRowCount(0);
 
-    //for loop to iterate over the LinkedList
-    for (int i = 0; i < babysitterList.size(); i++) {
-        BabysitterModel babysitter = babysitterList.get(i);
-        model.addRow(new Object[]{
+        //for loop to iterate over the LinkedList
+        babysitterList.forEach(babysitter
+                -> model.addRow(new Object[]{
             babysitter.getBabysitterId(),
             babysitter.getName(),
             babysitter.getAge(),
@@ -1353,9 +1393,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
             babysitter.getExperience(),
             babysitter.getAddress(),
             babysitter.getEmail()
-        });
+        }));
     }
-}
 
     /**
      * Display a message box with message tile and type of message
@@ -1547,7 +1586,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JTextField txtFieldExperience;
     private javax.swing.JTextField txtFieldName;
     private javax.swing.JPasswordField txtFldPassword;
-    private javax.swing.JTextField txtFldSearchBar;
+    private javax.swing.JTextField txtFldSearch;
     private javax.swing.JTextField txtFldUserName;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables

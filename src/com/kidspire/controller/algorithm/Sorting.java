@@ -29,16 +29,13 @@ public class Sorting {
      * sorted.
      * @param isAsc A Boolean flag indicating the sorting order; true for
      * ascending, false for descending.
-     * @param parentFrame The parent JFrame used for validation or displaying
-     * any relevant UI during sorting.
+     *
      */
-    public void InsertionSortByExperience(LinkedList<BabysitterModel> unsortedData, boolean isAsc, JFrame parentFrame) {
-        if (!validateListForSorting(unsortedData, parentFrame)) {
-            return;
-        }
-
+    public List<BabysitterModel> InsertionSortByExperience(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
+        
+        List<BabysitterModel> dataToSort=new ArrayList<>();
         //convert linked list to arraylist
-        dataToSort = new ArrayList<>(unsortedData);
+        dataToSort.addAll(unsortedData);
 
         for (int i = 1; i < dataToSort.size(); i++) {
             BabysitterModel currentValue = dataToSort.get(i);
@@ -71,6 +68,8 @@ public class Sorting {
         // Update the LinkedList with sorted elements
         unsortedData.clear();
         unsortedData.addAll(dataToSort);
+        
+        return dataToSort;
 
     }
 
@@ -80,15 +79,13 @@ public class Sorting {
      *
      * @param unsortedData The LinkedList to be sorted.
      * @param isAsc True for ascending order, false for descending order.
-     * @param parentFrame The parent frame for error messages if the list is
-     * invalid.
+     * 
      */
-    public void selectionSortByName(LinkedList<BabysitterModel> unsortedData, boolean isAsc, JFrame parentFrame) {
-        if (!validateListForSorting(unsortedData, parentFrame)) {
-            return;
-        }
+    public List<BabysitterModel> selectionSortByName(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
+        
         //convert linked list to arraylist
-        dataToSort = new ArrayList<>(unsortedData);
+        List <BabysitterModel>dataToSort = new ArrayList<>();
+        dataToSort.addAll(unsortedData);
         for (int i = 0; i < dataToSort.size() - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < dataToSort.size(); j++) {
@@ -114,9 +111,12 @@ public class Sorting {
             }
 
         }
-        // Update the original LinkedList with sorted values
         unsortedData.clear();
         unsortedData.addAll(dataToSort);
+        
+        return dataToSort;
+        
+        
     }
 
     public void mergeSortById(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
