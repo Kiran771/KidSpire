@@ -789,7 +789,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Babysitter Id", "Name", "Age", "Experience", "Address", "Contact", "Email"
+                "Babysitter Id", "Name", "Age", "Contact", "Experience", "Address", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -936,17 +936,13 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * table. Populates the babysitter list with sample data for demonstration
      * purposes.
      */
-//    private void initializeData() {
-//        // 
-//        BabysitterModel babysitter = new BabysitterModel(23456, "Garima", (short) 24, "9876453210", 3, "Hattiban", "garima@gmail.com");
-//        babysitterList.add(babysitter);
-//        addSampleBabysitter(babysitter);
-////        loadDetailsToTable(babysitterList);
-////        addSampleBabysitter(new BabysitterModel(23456,"Garima",(short) 24,"9876453210",3,"Hattiban","garima@gmail.com"));
-////        addSampleBabysitter(new BabysitterModel(23457,"Sunaina",(short) 23,"9876453450",2,"Kamalpokhari","sunaina@gmail.com"));
-////        addSampleBabysitter(new BabysitterModel(23458,"Bidhya",(short) 25,"9868963210",4,"Baneshwor","bidhya@gmail.com"));
-////        
-//    }
+   private void initializeData() {
+        babysitterList.add( new BabysitterModel(23456, "Garima", (short) 26,"9854653250",3,"Kamalpokhari","garima@gmail.com"));
+        babysitterList.add(new BabysitterModel (23457,"Sunaina",(short) 24,"9875643210",4,"Hattiban","sunaina@gmail.com"));
+        babysitterList.add(new BabysitterModel(23458,"Bidhya",(short) 25,"9807654231",5,"Baneshwor","bidhya@gmail.com"));
+        loadDetailsToTable(babysitterList);
+        
+   }
     /**
      * Simulates the loading progress using a SwingWorker thread. Updates a
      * progress bar incrementally and switches to the login screen upon
@@ -978,26 +974,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
         };
         worker.execute(); // Start the worker thread
     }
-
-    // Method to add student data and populate the table
-//    private void addSampleBabysitter(BabysitterModel babysitter) {
-//        //babysitterList.add(babysitter);
-////         defaultTableModel = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
-////        defaultTableModel.addRow(new Object[]{
-////            babysitter.getBabysitterId(), babysitter.getName(), babysitter.getAge(),
-////            babysitter.getExperience(),babysitter.getAddress(),babysitter.getContact(),babysitter.getEmail()
-////        }); 
-//        DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
-//        model.addRow(new Object[]{
-//            babysitter.getBabysitterId(),
-//            babysitter.getName(),
-//            babysitter.getAge(),
-//            babysitter.getExperience(),
-//            babysitter.getAddress(),
-//            babysitter.getContact(),
-//            babysitter.getEmail()
-//        });
-//    }
 
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
         txtFldPassword.setText("");
@@ -1361,22 +1337,25 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * existing rows in the table model before adding new data.
      */
     private void loadDetailsToTable(LinkedList<BabysitterModel> babysitterList) {
-        DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
+    DefaultTableModel model = (DefaultTableModel) tblToDisplayBabysitterInfo.getModel();
 
-        // Clear existing rows if needed
-        model.setRowCount(0);
+    // Clear existing rows if needed
+    model.setRowCount(0);
 
-        // Populate the table with babysitter data
-        babysitterList.forEach(babysitter -> model.addRow(new Object[]{
+    //for loop to iterate over the LinkedList
+    for (int i = 0; i < babysitterList.size(); i++) {
+        BabysitterModel babysitter = babysitterList.get(i);
+        model.addRow(new Object[]{
             babysitter.getBabysitterId(),
             babysitter.getName(),
             babysitter.getAge(),
+            babysitter.getContact(),
             babysitter.getExperience(),
             babysitter.getAddress(),
-            babysitter.getContact(),
             babysitter.getEmail()
-        }));
+        });
     }
+}
 
     /**
      * Display a message box with message tile and type of message

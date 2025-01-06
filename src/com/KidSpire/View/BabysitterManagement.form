@@ -1438,9 +1438,9 @@
                         <Column editable="false" title="Babysitter Id" type="java.lang.Object"/>
                         <Column editable="false" title="Name" type="java.lang.Object"/>
                         <Column editable="false" title="Age" type="java.lang.Object"/>
+                        <Column editable="false" title="Contact" type="java.lang.Object"/>
                         <Column editable="false" title="Experience" type="java.lang.Object"/>
                         <Column editable="false" title="Address" type="java.lang.Object"/>
-                        <Column editable="false" title="Contact" type="java.lang.Object"/>
                         <Column editable="false" title="Email" type="java.lang.Object"/>
                       </Table>
                     </Property>
