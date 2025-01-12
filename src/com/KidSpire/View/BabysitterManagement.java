@@ -1331,26 +1331,15 @@ public class BabysitterManagement extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please enter a value to Search.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (isInteger(searchValue)) {
-            int searchId = Integer.parseInt(searchValue);
-            List<BabysitterModel> searchById = search.searchById(searchId, babysitterList);
-
-            if (searchById.isEmpty()) {
+        
+        List<BabysitterModel> searchResult=search.search(searchValue,babysitterList);
+        if (searchResult.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                LinkedList<BabysitterModel> linkedSearchId = new LinkedList<>(searchById);
-                loadDetailsToTable(linkedSearchId);
+                LinkedList<BabysitterModel> searchBy = new LinkedList<>(searchResult);
+                loadDetailsToTable(searchBy);
             }
-        } else {
-            List<BabysitterModel> searchName = search.searchByName(searchValue, babysitterList);
-
-            if (searchName.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                LinkedList<BabysitterModel> linkedSearchName = new LinkedList<>(searchName);
-                loadDetailsToTable(linkedSearchName);
-            }
-        }
+        
 
 
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -1404,20 +1393,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             txtFldSearch.setText("");
         }
     }//GEN-LAST:event_txtFldSearchKeyTyped
-    /**
-     * Checks if the input string can be parsed as an integer.
-     *
-     * @param searchValue The string to be checked
-     * @return true if the string is an integer, false otherwise
-     */
-    private boolean isInteger(String searchValue) {
-        try {
-            Integer.parseInt(searchValue);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
+
 
     /**
      * Populates the JTable with the current list of Babysitter records. Clears
@@ -1429,7 +1405,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         // Clear existing rows if needed
         model.setRowCount(0);
 
-        //for loop to iterate over the LinkedList
+        //forEach loop to iterate over the LinkedList
         babysitterList.forEach(babysitter
                 -> model.addRow(new Object[]{
             babysitter.getBabysitterId(),
