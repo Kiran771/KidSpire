@@ -18,89 +18,100 @@ import java.util.List;
  */
 public class BinarySearch {
 
-    private Sorting sort;
+    private Sorting sortedForm;
 
     /**
-     * Searches for babysitters by name using binary search on a sorted list
-     *
+     * Searches for babysitters by name or ID using binary search on a sorted list
+     * Determines whether to search by name or ID based on the
+     * the basis of method isInteger
      * @param searchValue The name to search for
      * @param searchData The list of babysitters to search through
      * @return A list of matching babysitters
      */
-    public List<BabysitterModel> searchByName(String searchValue, LinkedList<BabysitterModel> searchData) {
+    public List<BabysitterModel> search(String searchValue, LinkedList<BabysitterModel> searchData) {
         if (searchData == null || searchData.isEmpty()) {
             return new ArrayList<>();
         }
-        sort = new Sorting();
+        sortedForm = new Sorting();
 
-        //Get sorted data as arrayList
-        List<BabysitterModel> sortedData = sort.selectionSortByName(searchData, true);
+        boolean isNumeric = isInteger(searchValue);
+        if (isNumeric) {
 
-        //convert the sorted arraylist to LinkedList
-        searchData = new LinkedList<>(sortedData);
+            int searchId = Integer.parseInt(searchValue);
+            List<BabysitterModel> sortedData = sortedForm.mergeSortById(searchData, true);
 
-        List<BabysitterModel> matchFound = new ArrayList<>();
+            searchData = new LinkedList<>(sortedData);
 
-        int startIndex = 0;
-        int endIndex = searchData.size() - 1;
+            List<BabysitterModel> matchFound = new ArrayList();
 
-        while (startIndex <= endIndex) {
-            int midIndex = (startIndex + endIndex) / 2;
+            int startIndex = 0;
+            int endIndex = searchData.size() - 1;
 
-            if (searchValue.compareToIgnoreCase(searchData.get(midIndex).getName()) == 0) {
-                matchFound.add(searchData.get(midIndex));
+            while (startIndex <= endIndex) {
+                int midIndex = (startIndex + endIndex) / 2;
+
+                if (searchId == searchData.get(midIndex).getBabysitterId()) {
+                    matchFound.add(searchData.get(midIndex));
+
+                }
+                if (searchId < searchData.get(midIndex).getBabysitterId()) {
+                    endIndex = midIndex - 1;
+
+                } else {
+                    startIndex = midIndex + 1;
+                }
+
             }
+            return matchFound;
 
-            if (searchValue.compareToIgnoreCase(searchData.get(midIndex).getName()) < 0) {
-                endIndex = midIndex - 1;
-            } else {
-                startIndex = midIndex + 1;
+        } else {
+
+            List<BabysitterModel> sortedData = sortedForm.selectionSortByName(searchData, true);
+
+            searchData = new LinkedList<>(sortedData);
+
+            List<BabysitterModel> matchFound = new ArrayList<>();
+
+            int startIndex = 0;
+            int endIndex = searchData.size() - 1;
+
+            while (startIndex <= endIndex) {
+                int midIndex = (startIndex + endIndex) / 2;
+
+                if (searchValue.compareToIgnoreCase(searchData.get(midIndex).getName()) == 0) {
+                    matchFound.add(searchData.get(midIndex));
+                }
+
+                if (searchValue.compareToIgnoreCase(searchData.get(midIndex).getName()) < 0) {
+                    endIndex = midIndex - 1;
+                } else {
+                    startIndex = midIndex + 1;
+                }
+
             }
-
+            return matchFound;
         }
-        return matchFound;
 
     }
 
     /**
-     * Searches for babysitters by id using binary search on a sorted list.
      *
-     * @param searchValue The name to search for
-     * @param searchData The list of babysitters to search through
-     * @return A list of matching babysitters
+     * Check if the given string is valid integer This method ensures that the
+     * input string is not null or empty,
+     *
+     * @param searchValue The string to check
+     * @return return true if if the string is a valid integer or false
      */
-    public List<BabysitterModel> searchById(int searchValue, LinkedList<BabysitterModel> searchData) {
-        if (searchData == null || searchData.isEmpty()) {
-            return new ArrayList<>();
+    public boolean isInteger(String searchValue) {
+        if (searchValue == null || searchValue.isEmpty()) {
+            return false;
         }
-        sort = new Sorting();
-
-        List<BabysitterModel> sortedData = sort.mergeSortById(searchData, true);
-
-        searchData = new LinkedList<>(sortedData);
-
-        List<BabysitterModel> matchFound = new ArrayList();
-
-        int startIndex = 0;
-        int endIndex = searchData.size() - 1;
-
-        while (startIndex <= endIndex) {
-            int midIndex = (startIndex + endIndex) / 2;
-
-            if (searchValue == searchData.get(midIndex).getBabysitterId()) {
-                matchFound.add(searchData.get(midIndex));
-
-            }
-            if (searchValue < searchData.get(midIndex).getBabysitterId()) {
-                endIndex = midIndex - 1;
-
-            } else {
-                startIndex = midIndex + 1;
-            }
-
+        try {
+            Integer.parseInt(searchValue);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
-        return matchFound;
-
     }
 
 }

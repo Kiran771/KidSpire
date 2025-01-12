@@ -73,6 +73,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblInfoContact = new javax.swing.JLabel();
         lblPhoneImage = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        AboutUsBtn = new javax.swing.JButton();
         adminWelcomePnl = new javax.swing.JPanel();
         lblOurStoryImage = new javax.swing.JLabel();
         pnlLogInScreen = new javax.swing.JPanel();
@@ -120,9 +121,13 @@ public class BabysitterManagement extends javax.swing.JFrame {
         tblPnl = new javax.swing.JPanel();
         spTblBabysitter = new javax.swing.JScrollPane();
         tblToDisplayBabysitterInfo = new javax.swing.JTable();
+        pnlAboutUs = new javax.swing.JPanel();
+        imageLbl = new javax.swing.JLabel();
         pnlLoadingScreen = new javax.swing.JPanel();
         pgBarSplashSc = new javax.swing.JProgressBar();
-        lblBgImage = new javax.swing.JLabel();
+        loadingLbl = new javax.swing.JLabel();
+        loadingValueLbl = new javax.swing.JLabel();
+        loadingImageLbl = new javax.swing.JLabel();
 
         pnlAdminScreen.setMaximumSize(new java.awt.Dimension(1000, 674));
         pnlAdminScreen.setMinimumSize(new java.awt.Dimension(1000, 674));
@@ -201,6 +206,10 @@ public class BabysitterManagement extends javax.swing.JFrame {
         btnGoToForm.setForeground(new java.awt.Color(255, 255, 255));
         btnGoToForm.setText("BabySitter");
         btnGoToForm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGoToForm.setMaximumSize(new java.awt.Dimension(140, 27));
+        btnGoToForm.setMinimumSize(new java.awt.Dimension(140, 27));
+        btnGoToForm.setPreferredSize(new java.awt.Dimension(140, 27));
+        btnGoToForm.setSize(new java.awt.Dimension(140, 27));
         btnGoToForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGoToFormActionPerformed(evt);
@@ -221,6 +230,21 @@ public class BabysitterManagement extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("+977 9804563004");
 
+        AboutUsBtn.setBackground(new java.awt.Color(173, 165, 158));
+        AboutUsBtn.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        AboutUsBtn.setForeground(new java.awt.Color(255, 255, 255));
+        AboutUsBtn.setText("About Us");
+        AboutUsBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AboutUsBtn.setMaximumSize(new java.awt.Dimension(140, 27));
+        AboutUsBtn.setMinimumSize(new java.awt.Dimension(140, 27));
+        AboutUsBtn.setPreferredSize(new java.awt.Dimension(140, 27));
+        AboutUsBtn.setSize(new java.awt.Dimension(140, 27));
+        AboutUsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AboutUsBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlSideMenuBarLayout = new javax.swing.GroupLayout(pnlSideMenuBar);
         pnlSideMenuBar.setLayout(pnlSideMenuBarLayout);
         pnlSideMenuBarLayout.setHorizontalGroup(
@@ -230,16 +254,21 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addComponent(lblWelcomeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPhoneImage, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                        .addComponent(btnGoToForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPhoneImage, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(AboutUsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGoToForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(5, Short.MAX_VALUE))
         );
         pnlSideMenuBarLayout.setVerticalGroup(
@@ -248,14 +277,16 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblWelcomeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnGoToForm, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGoToForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AboutUsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPhoneImage, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addComponent(lblPhoneImage)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -872,8 +903,25 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pnlAboutUs.setMaximumSize(new java.awt.Dimension(1000, 647));
+        pnlAboutUs.setMinimumSize(new java.awt.Dimension(1000, 647));
+        pnlAboutUs.setSize(new java.awt.Dimension(1000, 647));
+
+        imageLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/aboutUs.png"))); // NOI18N
+        imageLbl.setSize(new java.awt.Dimension(1000, 647));
+
+        javax.swing.GroupLayout pnlAboutUsLayout = new javax.swing.GroupLayout(pnlAboutUs);
+        pnlAboutUs.setLayout(pnlAboutUsLayout);
+        pnlAboutUsLayout.setHorizontalGroup(
+            pnlAboutUsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imageLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnlAboutUsLayout.setVerticalGroup(
+            pnlAboutUsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imageLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1000, 647));
         setMinimumSize(new java.awt.Dimension(1000, 647));
         setSize(new java.awt.Dimension(1000, 647));
 
@@ -888,9 +936,21 @@ public class BabysitterManagement extends javax.swing.JFrame {
         pgBarSplashSc.setForeground(new java.awt.Color(34, 125, 143));
         pnlLoadingScreen.add(pgBarSplashSc, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 900, 40));
 
-        lblBgImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/IMG_6471.JPG"))); // NOI18N
-        lblBgImage.setSize(new java.awt.Dimension(1000, 647));
-        pnlLoadingScreen.add(lblBgImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
+        loadingLbl.setFont(new java.awt.Font("Kannada MN", 1, 18)); // NOI18N
+        loadingLbl.setForeground(new java.awt.Color(255, 255, 255));
+        loadingLbl.setText("Loading.........");
+        pnlLoadingScreen.add(loadingLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 180, 20));
+
+        loadingValueLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        loadingValueLbl.setForeground(new java.awt.Color(255, 255, 255));
+        loadingValueLbl.setText("0%");
+        pnlLoadingScreen.add(loadingValueLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 570, 50, 20));
+
+        loadingImageLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/IMG_6471.JPG"))); // NOI18N
+        loadingImageLbl.setMaximumSize(new java.awt.Dimension(1000, 647));
+        loadingImageLbl.setMinimumSize(new java.awt.Dimension(1000, 647));
+        loadingImageLbl.setPreferredSize(new java.awt.Dimension(1000, 647));
+        pnlLoadingScreen.add(loadingImageLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -937,6 +997,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         getContentPane().add(pnlLogInScreen, "LoginScreen");
         getContentPane().add(pnlAdminScreen, "MainScreen");
         getContentPane().add(pnlBabySitter, "BabysitterScreen");
+        getContentPane().add(pnlAboutUs, "AboutUsScreen");
 
         // Start with the loading screen
         cardLayout.show(getContentPane(), "LoadingScreen");
@@ -975,9 +1036,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
             @Override
             protected Void doInBackground() throws Exception {
                 for (int i = 0; i <= 100; i++) {
-                    Thread.sleep(30); // Simulated delay for progress bar
-                    publish(i); // Publish progress
-
+                    Thread.sleep(50);
+                    publish(i);
                 }
                 return null;
             }
@@ -986,10 +1046,13 @@ public class BabysitterManagement extends javax.swing.JFrame {
             protected void process(java.util.List<Integer> chunks) {
                 int progress = chunks.get(chunks.size() - 1);
                 pgBarSplashSc.setValue(progress);
+                loadingValueLbl.setText(progress + "%");
             }
 
             @Override
             protected void done() {
+
+                loadingLbl.setText("Load Complete!");
                 loadScreen("LoginScreen"); // Switch to login screen
             }
         };
@@ -1331,15 +1394,14 @@ public class BabysitterManagement extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please enter a value to Search.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        List<BabysitterModel> searchResult=search.search(searchValue,babysitterList);
+
+        List<BabysitterModel> searchResult = search.search(searchValue, babysitterList);
         if (searchResult.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                LinkedList<BabysitterModel> searchBy = new LinkedList<>(searchResult);
-                loadDetailsToTable(searchBy);
-            }
-        
+            JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            LinkedList<BabysitterModel> searchBy = new LinkedList<>(searchResult);
+            loadDetailsToTable(searchBy);
+        }
 
 
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -1394,6 +1456,9 @@ public class BabysitterManagement extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtFldSearchKeyTyped
 
+    private void AboutUsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutUsBtnActionPerformed
+        loadScreen("AboutUsScreen");
+    }//GEN-LAST:event_AboutUsBtnActionPerformed
 
     /**
      * Populates the JTable with the current list of Babysitter records. Clears
@@ -1549,6 +1614,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AboutUsBtn;
     private javax.swing.JButton addBtn;
     private javax.swing.JPanel adminWelcomePnl;
     private javax.swing.JButton btnGoToForm;
@@ -1556,12 +1622,12 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbSort;
     private javax.swing.JButton deleteBtn;
+    private javax.swing.JLabel imageLbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblBabysitterId;
-    private javax.swing.JLabel lblBgImage;
     private javax.swing.JLabel lblContact;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblErrorMessageAddress;
@@ -1585,9 +1651,13 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lblToAddTitle;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblWelcomeAdmin;
+    private javax.swing.JLabel loadingImageLbl;
+    private javax.swing.JLabel loadingLbl;
+    private javax.swing.JLabel loadingValueLbl;
     private javax.swing.JButton logOutBtn;
     private javax.swing.JButton mainScBtn;
     private javax.swing.JProgressBar pgBarSplashSc;
+    private javax.swing.JPanel pnlAboutUs;
     private javax.swing.JPanel pnlAdminScreen;
     private javax.swing.JPanel pnlBabySitter;
     private javax.swing.JPanel pnlForm;
