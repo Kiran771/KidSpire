@@ -908,7 +908,9 @@ public class BabysitterManagement extends javax.swing.JFrame {
         pnlAboutUs.setSize(new java.awt.Dimension(1000, 647));
         pnlAboutUs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        adminPnlBtn.setBackground(new java.awt.Color(249, 240, 210));
+        adminPnlBtn.setBackground(new java.awt.Color(0, 0, 0));
+        adminPnlBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        adminPnlBtn.setForeground(new java.awt.Color(255, 255, 255));
         adminPnlBtn.setText("Home");
         adminPnlBtn.setBorder(new javax.swing.border.MatteBorder(null));
         adminPnlBtn.addActionListener(new java.awt.event.ActionListener() {

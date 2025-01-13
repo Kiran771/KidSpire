@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Performs binary search on BabysitterModel objects by name or ID. Ensures data
+ * Performs binary search on BabysitterModel objects by name or experience. Ensures data
  * is sorted before searching using Sorting class methods. Handles null/empty
  * data and returns matching results.
  *
@@ -21,8 +21,8 @@ public class BinarySearch {
     private Sorting sortedForm;
 
     /**
-     * Searches for babysitters by name or ID using binary search on a sorted list
-     * Determines whether to search by name or ID based on the
+     * Searches for babysitters by name or experience using binary search on a sorted list
+     * Determines whether to search by name or experience based on the
      * the basis of method isInteger
      * @param searchValue The name to search for
      * @param searchData The list of babysitters to search through
@@ -38,7 +38,7 @@ public class BinarySearch {
         if (isNumeric) {
 
             int searchId = Integer.parseInt(searchValue);
-            List<BabysitterModel> sortedData = sortedForm.mergeSortById(searchData, true);
+            List<BabysitterModel> sortedData = sortedForm.InsertionSortByExperience(searchData, true);
 
             searchData = new LinkedList<>(sortedData);
 
@@ -50,11 +50,11 @@ public class BinarySearch {
             while (startIndex <= endIndex) {
                 int midIndex = (startIndex + endIndex) / 2;
 
-                if (searchId == searchData.get(midIndex).getBabysitterId()) {
+                if (searchId == searchData.get(midIndex).getExperience()) {
                     matchFound.add(searchData.get(midIndex));
 
                 }
-                if (searchId < searchData.get(midIndex).getBabysitterId()) {
+                if (searchId < searchData.get(midIndex).getExperience()) {
                     endIndex = midIndex - 1;
 
                 } else {
