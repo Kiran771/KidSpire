@@ -535,9 +535,6 @@
                   <Dimension value="[319, 50]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFldUserNameActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblPassword">
               <Properties>
@@ -583,9 +580,6 @@
                   <Dimension value="[319, 50]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFldPasswordActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -610,7 +604,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="pnlBabySitter">
+    <Container class="javax.swing.JPanel" name="pnlManageBabySitter">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1072,9 +1066,6 @@
                   <Dimension value="[209, 39]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFieldAddressActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblContact">
               <Properties>
@@ -1411,8 +1402,6 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFldSearchActionPerformed"/>
-                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtFldSearchKeyPressed"/>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtFldSearchKeyTyped"/>
                   </Events>
                 </Component>
