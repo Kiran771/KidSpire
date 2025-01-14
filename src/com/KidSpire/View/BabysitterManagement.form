@@ -182,7 +182,7 @@
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblAdmin" min="-2" pref="205" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
+                                  <Component id="lblPhoneNumber" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
                                   <Component id="lblPhoneImage" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -193,7 +193,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="AboutUsBtn" max="32767" attributes="0"/>
+                                  <Component id="aboutUsBtn" max="32767" attributes="0"/>
                                   <Component id="btnGoToForm" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -212,13 +212,13 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnGoToForm" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="AboutUsBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="aboutUsBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="lblInfoContact" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblPhoneImage" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="lblPhoneNumber" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -299,7 +299,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="lblPhoneNumber">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Helvetica Neue" size="18" style="0"/>
@@ -308,7 +308,7 @@
                 <Property name="text" type="java.lang.String" value="+977 9804563004"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="AboutUsBtn">
+            <Component class="javax.swing.JButton" name="aboutUsBtn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9e" green="a5" red="ad" type="rgb"/>
@@ -339,7 +339,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AboutUsBtnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aboutUsBtnActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -466,7 +466,7 @@
                                   <Component id="lblPassword" alignment="0" max="32767" attributes="0"/>
                                   <Component id="lblErrorUserName" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtFldUserName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtFldPassword" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="passwordFld" alignment="1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -492,7 +492,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblPassword" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtFldPassword" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="passwordFld" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lblErrorPassword" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -565,7 +565,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblErrorPassword">
             </Component>
-            <Component class="javax.swing.JPasswordField" name="txtFldPassword">
+            <Component class="javax.swing.JPasswordField" name="passwordFld">
               <Properties>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[319, 50]"/>
@@ -1601,7 +1601,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="imageLbl">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Image/aboutUs.png"/>

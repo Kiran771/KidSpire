@@ -72,8 +72,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblAdmin = new javax.swing.JLabel();
         lblInfoContact = new javax.swing.JLabel();
         lblPhoneImage = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        AboutUsBtn = new javax.swing.JButton();
+        lblPhoneNumber = new javax.swing.JLabel();
+        aboutUsBtn = new javax.swing.JButton();
         adminWelcomePnl = new javax.swing.JPanel();
         lblOurStoryImage = new javax.swing.JLabel();
         pnlLogInScreen = new javax.swing.JPanel();
@@ -85,7 +85,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         btnLogIn = new javax.swing.JButton();
         lblErrorUserName = new javax.swing.JLabel();
         lblErrorPassword = new javax.swing.JLabel();
-        txtFldPassword = new javax.swing.JPasswordField();
+        passwordFld = new javax.swing.JPasswordField();
         lblForImageInLoginSc = new javax.swing.JLabel();
         adminPnl = new javax.swing.JPanel();
         pnlForm = new javax.swing.JPanel();
@@ -123,7 +123,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         tblToDisplayBabysitterInfo = new javax.swing.JTable();
         pnlAboutUs = new javax.swing.JPanel();
         adminPnlBtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        imageLbl = new javax.swing.JLabel();
         pnlLoadingScreen = new javax.swing.JPanel();
         pgBarSplashSc = new javax.swing.JProgressBar();
         loadingLbl = new javax.swing.JLabel();
@@ -227,22 +227,22 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblPhoneImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PHONE.png.jpeg"))); // NOI18N
         lblPhoneImage.setSize(new java.awt.Dimension(182, 120));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("+977 9804563004");
+        lblPhoneNumber.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPhoneNumber.setText("+977 9804563004");
 
-        AboutUsBtn.setBackground(new java.awt.Color(173, 165, 158));
-        AboutUsBtn.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        AboutUsBtn.setForeground(new java.awt.Color(255, 255, 255));
-        AboutUsBtn.setText("About Us");
-        AboutUsBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        AboutUsBtn.setMaximumSize(new java.awt.Dimension(140, 27));
-        AboutUsBtn.setMinimumSize(new java.awt.Dimension(140, 27));
-        AboutUsBtn.setPreferredSize(new java.awt.Dimension(140, 27));
-        AboutUsBtn.setSize(new java.awt.Dimension(140, 27));
-        AboutUsBtn.addActionListener(new java.awt.event.ActionListener() {
+        aboutUsBtn.setBackground(new java.awt.Color(173, 165, 158));
+        aboutUsBtn.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        aboutUsBtn.setForeground(new java.awt.Color(255, 255, 255));
+        aboutUsBtn.setText("About Us");
+        aboutUsBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        aboutUsBtn.setMaximumSize(new java.awt.Dimension(140, 27));
+        aboutUsBtn.setMinimumSize(new java.awt.Dimension(140, 27));
+        aboutUsBtn.setPreferredSize(new java.awt.Dimension(140, 27));
+        aboutUsBtn.setSize(new java.awt.Dimension(140, 27));
+        aboutUsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AboutUsBtnActionPerformed(evt);
+                aboutUsBtnActionPerformed(evt);
             }
         });
 
@@ -260,7 +260,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPhoneImage, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
@@ -268,7 +268,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                     .addGroup(pnlSideMenuBarLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(pnlSideMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(AboutUsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(aboutUsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnGoToForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(5, Short.MAX_VALUE))
         );
@@ -282,13 +282,13 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnGoToForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AboutUsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(aboutUsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblInfoContact, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPhoneImage)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
 
@@ -370,10 +370,10 @@ public class BabysitterManagement extends javax.swing.JFrame {
             }
         });
 
-        txtFldPassword.setMaximumSize(new java.awt.Dimension(319, 50));
-        txtFldPassword.setMinimumSize(new java.awt.Dimension(319, 50));
-        txtFldPassword.setPreferredSize(new java.awt.Dimension(319, 50));
-        txtFldPassword.setSize(new java.awt.Dimension(319, 50));
+        passwordFld.setMaximumSize(new java.awt.Dimension(319, 50));
+        passwordFld.setMinimumSize(new java.awt.Dimension(319, 50));
+        passwordFld.setPreferredSize(new java.awt.Dimension(319, 50));
+        passwordFld.setSize(new java.awt.Dimension(319, 50));
 
         javax.swing.GroupLayout pnlLoginDetailsLayout = new javax.swing.GroupLayout(pnlLoginDetails);
         pnlLoginDetails.setLayout(pnlLoginDetailsLayout);
@@ -390,7 +390,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                             .addComponent(lblPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblErrorUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtFldUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtFldPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(passwordFld, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pnlLoginDetailsLayout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addComponent(btnLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -410,7 +410,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtFldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordFld, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblErrorPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -897,8 +897,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
         });
         pnlAboutUs.add(adminPnlBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 100, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/aboutUs.png"))); // NOI18N
-        pnlAboutUs.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
+        imageLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/aboutUs.png"))); // NOI18N
+        pnlAboutUs.add(imageLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 647));
@@ -1042,7 +1042,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
      */
 
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
-        txtFldPassword.setText("");
+        passwordFld.setText("");
         txtFldUserName.setText("");
         loadScreen("LoginScreen"); // Load the main screen
     }//GEN-LAST:event_logOutBtnActionPerformed
@@ -1065,7 +1065,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         //Get data from user name and password textfiled
         String userName = txtFldUserName.getText();
-        String password = new String(txtFldPassword.getPassword());
+        String password = new String(passwordFld.getPassword());
 
         boolean hasError = false;
 
@@ -1092,17 +1092,17 @@ public class BabysitterManagement extends javax.swing.JFrame {
         if (password.isEmpty()) {
             lblErrorPassword.setText("*Please enter password");//Display message to inform password is empty
             lblErrorPassword.setForeground(errorColor);
-            txtFldPassword.setBorder(createLineBorder(errorColor));
+            passwordFld.setBorder(createLineBorder(errorColor));
             hasError = true;
             //Check if password is incorrect
         } else if (!password.equals("admin")) {
             lblErrorPassword.setText("*Please enter correct password");
             lblErrorPassword.setForeground(errorColor);
-            txtFldPassword.setBorder(createLineBorder(errorColor));
+            passwordFld.setBorder(createLineBorder(errorColor));
             hasError = true;
         } else {
             lblErrorPassword.setText(" ");//clear text from password error label
-            txtFldPassword.setBorder(createLineBorder(successColor));
+            passwordFld.setBorder(createLineBorder(successColor));
 
         }
         //load manScreen if no error occur
@@ -1179,7 +1179,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             );
 
             // Check for duplicate Babysitter Id
-            if (checkDuplicateStudent(newBabysitter)) {
+            if (checkDuplicateBabysitter(newBabysitter)) {
                 txtFieldBabysitterId.setBorder(createLineBorder(errorColor));
                 showDialogBox("Baby sitter ID already exists.", "Duplicate Entry", JOptionPane.WARNING_MESSAGE);
             } else {
@@ -1418,9 +1418,9 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * load the About us screen
      * @param evt the Action event triggered by button aboutUsBtn in main screen
      */
-    private void AboutUsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutUsBtnActionPerformed
+    private void aboutUsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutUsBtnActionPerformed
         loadScreen("AboutUsScreen");
-    }//GEN-LAST:event_AboutUsBtnActionPerformed
+    }//GEN-LAST:event_aboutUsBtnActionPerformed
     /**
      * load the mainScreen 
      * @param evt the Action event triggered by button in about us screen
@@ -1519,7 +1519,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     }
 
     /**
-     * Clears all input fields in the student form. Resets each field's value to
+     * Clears all input fields in the babysitter form. Resets each field's value to
      * an empty string.
      */
     private void clearBabysitterForm() {
@@ -1540,7 +1540,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * @param babysitter the BabysitterModel object to check for duplicates
      * @return true if a duplicate is found, false otherwise
      */
-    private boolean checkDuplicateStudent(BabysitterModel babysitter) {
+    private boolean checkDuplicateBabysitter(BabysitterModel babysitter) {
         return babysitterList.stream()
                 .anyMatch(existingBabysitter
                         -> existingBabysitter.getBabysitterId() == babysitter.getBabysitterId());
@@ -1583,7 +1583,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AboutUsBtn;
+    private javax.swing.JButton aboutUsBtn;
     private javax.swing.JButton addBtn;
     private javax.swing.JPanel adminPnl;
     private javax.swing.JButton adminPnlBtn;
@@ -1593,8 +1593,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbSort;
     private javax.swing.JButton deleteBtn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel imageLbl;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblAge;
@@ -1619,6 +1618,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lblOurStoryImage;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhoneImage;
+    private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lblToAddTitle;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblWelcomeAdmin;
@@ -1627,6 +1627,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JLabel loadingValueLbl;
     private javax.swing.JButton logOutBtn;
     private javax.swing.JButton mainScBtn;
+    private javax.swing.JPasswordField passwordFld;
     private javax.swing.JProgressBar pgBarSplashSc;
     private javax.swing.JPanel pnlAboutUs;
     private javax.swing.JPanel pnlForm;
@@ -1647,7 +1648,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JTextField txtFieldEmail;
     private javax.swing.JTextField txtFieldExperience;
     private javax.swing.JTextField txtFieldName;
-    private javax.swing.JPasswordField txtFldPassword;
     private javax.swing.JTextField txtFldSearch;
     private javax.swing.JTextField txtFldUserName;
     private javax.swing.JButton updateBtn;
