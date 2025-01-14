@@ -61,7 +61,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlAdminScreen = new javax.swing.JPanel();
+        pnlHomeScreen = new javax.swing.JPanel();
         pnlMainTitle = new javax.swing.JPanel();
         lblToAddTitle = new javax.swing.JLabel();
         logOutBtn = new javax.swing.JButton();
@@ -87,7 +87,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblErrorPassword = new javax.swing.JLabel();
         txtFldPassword = new javax.swing.JPasswordField();
         lblForImageInLoginSc = new javax.swing.JLabel();
-        pnlManageBabySitter = new javax.swing.JPanel();
+        adminPnl = new javax.swing.JPanel();
         pnlForm = new javax.swing.JPanel();
         lblBabysitterId = new javax.swing.JLabel();
         txtFieldBabysitterId = new javax.swing.JTextField();
@@ -130,10 +130,10 @@ public class BabysitterManagement extends javax.swing.JFrame {
         loadingValueLbl = new javax.swing.JLabel();
         loadingImageLbl = new javax.swing.JLabel();
 
-        pnlAdminScreen.setMaximumSize(new java.awt.Dimension(1000, 674));
-        pnlAdminScreen.setMinimumSize(new java.awt.Dimension(1000, 674));
-        pnlAdminScreen.setPreferredSize(new java.awt.Dimension(1000, 674));
-        pnlAdminScreen.setSize(new java.awt.Dimension(1000, 674));
+        pnlHomeScreen.setMaximumSize(new java.awt.Dimension(1000, 674));
+        pnlHomeScreen.setMinimumSize(new java.awt.Dimension(1000, 674));
+        pnlHomeScreen.setPreferredSize(new java.awt.Dimension(1000, 674));
+        pnlHomeScreen.setSize(new java.awt.Dimension(1000, 674));
 
         pnlMainTitle.setBackground(new java.awt.Color(115, 150, 145));
         pnlMainTitle.setMaximumSize(new java.awt.Dimension(1000, 126));
@@ -311,23 +311,23 @@ public class BabysitterManagement extends javax.swing.JFrame {
             .addComponent(lblOurStoryImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout pnlAdminScreenLayout = new javax.swing.GroupLayout(pnlAdminScreen);
-        pnlAdminScreen.setLayout(pnlAdminScreenLayout);
-        pnlAdminScreenLayout.setHorizontalGroup(
-            pnlAdminScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAdminScreenLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlHomeScreenLayout = new javax.swing.GroupLayout(pnlHomeScreen);
+        pnlHomeScreen.setLayout(pnlHomeScreenLayout);
+        pnlHomeScreenLayout.setHorizontalGroup(
+            pnlHomeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeScreenLayout.createSequentialGroup()
                 .addComponent(pnlSideMenuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(adminWelcomePnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(pnlMainTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        pnlAdminScreenLayout.setVerticalGroup(
-            pnlAdminScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAdminScreenLayout.createSequentialGroup()
+        pnlHomeScreenLayout.setVerticalGroup(
+            pnlHomeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeScreenLayout.createSequentialGroup()
                 .addComponent(pnlMainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAdminScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlHomeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSideMenuBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(adminWelcomePnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -445,12 +445,12 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        pnlManageBabySitter.setBackground(new java.awt.Color(255, 255, 255));
-        pnlManageBabySitter.setMaximumSize(new java.awt.Dimension(1000, 680));
-        pnlManageBabySitter.setMinimumSize(new java.awt.Dimension(1000, 680));
-        pnlManageBabySitter.setPreferredSize(new java.awt.Dimension(1000, 680));
-        pnlManageBabySitter.setRequestFocusEnabled(false);
-        pnlManageBabySitter.setSize(new java.awt.Dimension(1000, 680));
+        adminPnl.setBackground(new java.awt.Color(255, 255, 255));
+        adminPnl.setMaximumSize(new java.awt.Dimension(1000, 680));
+        adminPnl.setMinimumSize(new java.awt.Dimension(1000, 680));
+        adminPnl.setPreferredSize(new java.awt.Dimension(1000, 680));
+        adminPnl.setRequestFocusEnabled(false);
+        adminPnl.setSize(new java.awt.Dimension(1000, 680));
 
         pnlForm.setBackground(new java.awt.Color(204, 208, 199));
         pnlForm.setMaximumSize(new java.awt.Dimension(1000, 360));
@@ -861,19 +861,19 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addGap(0, 46, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout pnlManageBabySitterLayout = new javax.swing.GroupLayout(pnlManageBabySitter);
-        pnlManageBabySitter.setLayout(pnlManageBabySitterLayout);
-        pnlManageBabySitterLayout.setHorizontalGroup(
-            pnlManageBabySitterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlManageBabySitterLayout.createSequentialGroup()
-                .addGroup(pnlManageBabySitterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        javax.swing.GroupLayout adminPnlLayout = new javax.swing.GroupLayout(adminPnl);
+        adminPnl.setLayout(adminPnlLayout);
+        adminPnlLayout.setHorizontalGroup(
+            adminPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(adminPnlLayout.createSequentialGroup()
+                .addGroup(adminPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tblPnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pnlManageBabySitterLayout.setVerticalGroup(
-            pnlManageBabySitterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlManageBabySitterLayout.createSequentialGroup()
+        adminPnlLayout.setVerticalGroup(
+            adminPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPnlLayout.createSequentialGroup()
                 .addComponent(pnlForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tblPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -971,8 +971,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
         // Add panels with unique identifiers
         getContentPane().add(pnlLoadingScreen, "LoadingScreen");
         getContentPane().add(pnlLogInScreen, "LoginScreen");
-        getContentPane().add(pnlAdminScreen, "MainScreen");
-        getContentPane().add(pnlManageBabySitter, "BabysitterScreen");
+        getContentPane().add(pnlHomeScreen, "MainScreen");
+        getContentPane().add(adminPnl, "BabysitterScreen");
         getContentPane().add(pnlAboutUs, "AboutUsScreen");
 
         // Start with the loading screen
@@ -1585,6 +1585,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AboutUsBtn;
     private javax.swing.JButton addBtn;
+    private javax.swing.JPanel adminPnl;
     private javax.swing.JButton adminPnlBtn;
     private javax.swing.JPanel adminWelcomePnl;
     private javax.swing.JButton btnGoToForm;
@@ -1628,13 +1629,12 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JButton mainScBtn;
     private javax.swing.JProgressBar pgBarSplashSc;
     private javax.swing.JPanel pnlAboutUs;
-    private javax.swing.JPanel pnlAdminScreen;
     private javax.swing.JPanel pnlForm;
+    private javax.swing.JPanel pnlHomeScreen;
     private javax.swing.JPanel pnlLoadingScreen;
     private javax.swing.JPanel pnlLogInScreen;
     private javax.swing.JPanel pnlLoginDetails;
     private javax.swing.JPanel pnlMainTitle;
-    private javax.swing.JPanel pnlManageBabySitter;
     private javax.swing.JPanel pnlSearchSort;
     private javax.swing.JPanel pnlSideMenuBar;
     private javax.swing.JScrollPane spTblBabysitter;
