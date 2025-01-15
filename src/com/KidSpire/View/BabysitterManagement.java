@@ -1303,7 +1303,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             babysitterList.remove(selectedBabysitter);
             model.removeRow(selectedRow);
             clearBabysitterForm();
-            showMessageBox("Data deleted successfully.", "Deleted", JOptionPane.INFORMATION_MESSAGE);
+            showMessageBox("Babysitter details deleted successfully.", "Deleted", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (IndexOutOfBoundsException e) {
             showMessageBox("Invalid row selected.", "Invalid row", JOptionPane.ERROR_MESSAGE);
@@ -1383,10 +1383,10 @@ public class BabysitterManagement extends javax.swing.JFrame {
             return;
         }
         if (sortBy.equalsIgnoreCase("Experience(Ascending)")) {
-            sorting.InsertionSortByExperience(babysitterList, true);
+            sorting.insertionSortByExperience(babysitterList, true);
 
         } else if (sortBy.equalsIgnoreCase("Experience(Descending)")) {
-            sorting.InsertionSortByExperience(babysitterList, false);
+            sorting.insertionSortByExperience(babysitterList, false);
 
         } else if (sortBy.equalsIgnoreCase("Name(Ascending)")) {
 

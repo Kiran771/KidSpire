@@ -37,8 +37,8 @@ public class BinarySearch {
         boolean isNumeric = isInteger(searchValue);
         if (isNumeric) {
 
-            int searchId = Integer.parseInt(searchValue);
-            List<BabysitterModel> sortedData = sortedForm.InsertionSortByExperience(searchData, true);
+            int searchExperience = Integer.parseInt(searchValue);
+            List<BabysitterModel> sortedData = sortedForm.insertionSortByExperience(searchData, true);
 
             searchData = new LinkedList<>(sortedData);
 
@@ -50,11 +50,11 @@ public class BinarySearch {
             while (startIndex <= endIndex) {
                 int midIndex = (startIndex + endIndex) / 2;
 
-                if (searchId == searchData.get(midIndex).getExperience()) {
+                if (searchExperience == searchData.get(midIndex).getExperience()) {
                     matchFound.add(searchData.get(midIndex));
 
                 }
-                if (searchId < searchData.get(midIndex).getExperience()) {
+                if (searchExperience < searchData.get(midIndex).getExperience()) {
                     endIndex = midIndex - 1;
 
                 } else {

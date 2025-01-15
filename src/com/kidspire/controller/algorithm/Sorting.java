@@ -33,7 +33,7 @@ public class Sorting {
      * ascending, false for descending.
      *
      */
-    public List<BabysitterModel> InsertionSortByExperience(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
+    public List<BabysitterModel> insertionSortByExperience(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
 
         List<BabysitterModel> dataToSort = new ArrayList<>();
         //convert linked list to arraylist
@@ -85,7 +85,7 @@ public class Sorting {
      */
     public List<BabysitterModel> selectionSortByName(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
 
-        //convert linked list to arraylist
+        //initialize arraylist
         List<BabysitterModel> dataToSort = new ArrayList<>();
         dataToSort.addAll(unsortedData);
         for (int i = 0; i < dataToSort.size() - 1; i++) {
@@ -120,6 +120,15 @@ public class Sorting {
 
     }
 
+    /**
+     * Sorts a LinkedList of BabysitterModel objects by ID using the merge sort
+     * algorithm. The sorting order is determined by the isAsc flag.
+     *
+     * @param unsortedData LinkedList to be sorted.
+     * @param isAsc Flag indicating sorting order true for ascending, false for
+     * descending
+     * @return Sorted List of BabysitterModel objects.
+     */
     public List<BabysitterModel> mergeSortById(LinkedList<BabysitterModel> unsortedData, boolean isAsc) {
 
         List<BabysitterModel> dataToSort = new ArrayList<>(unsortedData);
