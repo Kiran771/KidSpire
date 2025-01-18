@@ -740,13 +740,13 @@ public class BabysitterManagement extends javax.swing.JFrame {
                         .addComponent(mainScBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))
                     .addGroup(pnlFormLayout.createSequentialGroup()
-                        .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblErrorMessageAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtFieldBabysitterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblBabysitterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblErrorMessageBsId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblErrorMessageBsId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblErrorMessageAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(22, 22, 22)
                         .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1277,7 +1277,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         try {
             int experience = Integer.parseInt(txtFieldExperience.getText().trim());
             isValid &= validateField(
-                    txtFieldExperience, lblErrorMessageExperience, "Atleast 1 year exp.",
+                    txtFieldExperience, lblErrorMessageExperience, "Must be between 1 and 20",
                     errorColor, successColor, ValidationUtil.isValidExperience(experience)
             );
         } catch (NumberFormatException e) {
@@ -1365,11 +1365,11 @@ public class BabysitterManagement extends javax.swing.JFrame {
         try {
             int experience = Integer.parseInt(txtFieldExperience.getText().trim());
             isValid &= validateField(
-                    txtFieldExperience, lblErrorMessageExperience, "Must have atleast 1 year exp",
+                    txtFieldExperience, lblErrorMessageExperience, "Must be between 1 and 20",
                     errorColor, successColor, ValidationUtil.isValidExperience(experience)
             );
         } catch (NumberFormatException e) {
-            validateField(txtFieldExperience, lblErrorMessageExperience, "Must be 3 or greater than three", errorColor, successColor, false);
+            validateField(txtFieldExperience, lblErrorMessageExperience, "Must be a valid number", errorColor, successColor, false);
             isValid = false;
         }
         //Validate email
