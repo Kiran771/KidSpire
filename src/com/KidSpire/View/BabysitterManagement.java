@@ -39,7 +39,9 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private BinarySearch search;
 
     /**
-     * Creates new form KidSpire
+     * Constructor that initializes the BabysitterManagement system. Sets up the
+     * UI, loads the login screen, initializes the layout, starts the progress
+     * bar, initializes the babysitter list, and sorting functionality.
      */
     public BabysitterManagement() {
         initComponents();
@@ -74,8 +76,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblPhoneImage = new javax.swing.JLabel();
         lblPhoneNumber = new javax.swing.JLabel();
         aboutUsBtn = new javax.swing.JButton();
-        adminWelcomePnl = new javax.swing.JPanel();
-        lblOurStoryImage = new javax.swing.JLabel();
+        homeWelcomePnl = new javax.swing.JPanel();
+        imageLbl = new javax.swing.JLabel();
         pnlLogInScreen = new javax.swing.JPanel();
         pnlLoginDetails = new javax.swing.JPanel();
         lblLogin = new javax.swing.JLabel();
@@ -122,8 +124,31 @@ public class BabysitterManagement extends javax.swing.JFrame {
         spTblBabysitter = new javax.swing.JScrollPane();
         tblToDisplayBabysitterInfo = new javax.swing.JTable();
         pnlAboutUs = new javax.swing.JPanel();
-        adminPnlBtn = new javax.swing.JButton();
-        imageLbl = new javax.swing.JLabel();
+        homeScreenBtn = new javax.swing.JButton();
+        aboutUsLbl = new javax.swing.JLabel();
+        aboutUsDesLbl4 = new javax.swing.JLabel();
+        aboutUsDesLbl3 = new javax.swing.JLabel();
+        aboutUsDesLbl2 = new javax.swing.JLabel();
+        aboutUsDesLbl1 = new javax.swing.JLabel();
+        aboutUsDesLbl5 = new javax.swing.JLabel();
+        whatWeDoLbl = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        imageLblCeo = new javax.swing.JLabel();
+        lblDesc = new javax.swing.JLabel();
+        lblDes1 = new javax.swing.JLabel();
+        lblDes2 = new javax.swing.JLabel();
+        lblDes3 = new javax.swing.JLabel();
+        lblDes4 = new javax.swing.JLabel();
+        visionLbl = new javax.swing.JLabel();
+        lblVision1 = new javax.swing.JLabel();
+        lblVision2 = new javax.swing.JLabel();
+        lblVision3 = new javax.swing.JLabel();
+        lblVision4 = new javax.swing.JLabel();
+        ceoNameLbl = new javax.swing.JLabel();
+        memoryLbl = new javax.swing.JLabel();
+        memoryLbl1 = new javax.swing.JLabel();
+        lblImage1 = new javax.swing.JLabel();
+        lblImage2 = new javax.swing.JLabel();
         pnlLoadingScreen = new javax.swing.JPanel();
         pgBarSplashSc = new javax.swing.JProgressBar();
         loadingLbl = new javax.swing.JLabel();
@@ -148,7 +173,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblToAddTitle.setText("Babysitter Management System");
         lblToAddTitle.setAlignmentX(0.5F);
 
-        logOutBtn.setBackground(new java.awt.Color(102, 102, 102));
+        logOutBtn.setBackground(new java.awt.Color(0, 0, 0));
         logOutBtn.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         logOutBtn.setForeground(new java.awt.Color(255, 255, 255));
         logOutBtn.setText("Logout");
@@ -202,10 +227,10 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblWelcomeAdmin.setFont(new java.awt.Font("Hiragino Sans GB", 0, 18)); // NOI18N
         lblWelcomeAdmin.setText("Welcome, Admin");
 
-        btnGoToForm.setBackground(new java.awt.Color(173, 165, 158));
+        btnGoToForm.setBackground(new java.awt.Color(0, 0, 0));
         btnGoToForm.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         btnGoToForm.setForeground(new java.awt.Color(255, 255, 255));
-        btnGoToForm.setText("BabySitter");
+        btnGoToForm.setText("Manage profiles");
         btnGoToForm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGoToForm.setMaximumSize(new java.awt.Dimension(140, 27));
         btnGoToForm.setMinimumSize(new java.awt.Dimension(140, 27));
@@ -231,7 +256,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         lblPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPhoneNumber.setText("+977 9804563004");
 
-        aboutUsBtn.setBackground(new java.awt.Color(173, 165, 158));
+        aboutUsBtn.setBackground(new java.awt.Color(0, 0, 0));
         aboutUsBtn.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         aboutUsBtn.setForeground(new java.awt.Color(255, 255, 255));
         aboutUsBtn.setText("About Us");
@@ -292,24 +317,16 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
-        adminWelcomePnl.setBackground(new java.awt.Color(242, 240, 222));
-        adminWelcomePnl.setMaximumSize(new java.awt.Dimension(749, 542));
-        adminWelcomePnl.setMinimumSize(new java.awt.Dimension(749, 542));
-        adminWelcomePnl.setPreferredSize(new java.awt.Dimension(749, 542));
-        adminWelcomePnl.setSize(new java.awt.Dimension(749, 542));
+        homeWelcomePnl.setBackground(new java.awt.Color(242, 240, 222));
+        homeWelcomePnl.setMaximumSize(new java.awt.Dimension(749, 542));
+        homeWelcomePnl.setMinimumSize(new java.awt.Dimension(749, 542));
+        homeWelcomePnl.setPreferredSize(new java.awt.Dimension(749, 542));
+        homeWelcomePnl.setSize(new java.awt.Dimension(749, 542));
+        homeWelcomePnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblOurStoryImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Baby.png"))); // NOI18N
-
-        javax.swing.GroupLayout adminWelcomePnlLayout = new javax.swing.GroupLayout(adminWelcomePnl);
-        adminWelcomePnl.setLayout(adminWelcomePnlLayout);
-        adminWelcomePnlLayout.setHorizontalGroup(
-            adminWelcomePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblOurStoryImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        adminWelcomePnlLayout.setVerticalGroup(
-            adminWelcomePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblOurStoryImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        imageLbl.setForeground(new java.awt.Color(255, 255, 255));
+        imageLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/memories.png"))); // NOI18N
+        homeWelcomePnl.add(imageLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 540));
 
         javax.swing.GroupLayout pnlHomeScreenLayout = new javax.swing.GroupLayout(pnlHomeScreen);
         pnlHomeScreen.setLayout(pnlHomeScreenLayout);
@@ -318,7 +335,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
             .addGroup(pnlHomeScreenLayout.createSequentialGroup()
                 .addComponent(pnlSideMenuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(adminWelcomePnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(homeWelcomePnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(pnlMainTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -329,7 +346,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlHomeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSideMenuBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(adminWelcomePnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(homeWelcomePnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pnlLogInScreen.setBackground(new java.awt.Color(72, 75, 50));
@@ -880,25 +897,121 @@ public class BabysitterManagement extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pnlAboutUs.setBackground(new java.awt.Color(115, 150, 145));
         pnlAboutUs.setMaximumSize(new java.awt.Dimension(1000, 647));
         pnlAboutUs.setMinimumSize(new java.awt.Dimension(1000, 647));
+        pnlAboutUs.setPreferredSize(new java.awt.Dimension(1000, 647));
         pnlAboutUs.setSize(new java.awt.Dimension(1000, 647));
         pnlAboutUs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        adminPnlBtn.setBackground(new java.awt.Color(0, 0, 0));
-        adminPnlBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        adminPnlBtn.setForeground(new java.awt.Color(255, 255, 255));
-        adminPnlBtn.setText("Home");
-        adminPnlBtn.setBorder(new javax.swing.border.MatteBorder(null));
-        adminPnlBtn.addActionListener(new java.awt.event.ActionListener() {
+        homeScreenBtn.setBackground(new java.awt.Color(0, 0, 0));
+        homeScreenBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        homeScreenBtn.setForeground(new java.awt.Color(255, 255, 255));
+        homeScreenBtn.setText("Home");
+        homeScreenBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        homeScreenBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adminPnlBtnActionPerformed(evt);
+                homeScreenBtnActionPerformed(evt);
             }
         });
-        pnlAboutUs.add(adminPnlBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 100, 30));
+        pnlAboutUs.add(homeScreenBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 100, 40));
 
-        imageLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/aboutUs.png"))); // NOI18N
-        pnlAboutUs.add(imageLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
+        aboutUsLbl.setFont(new java.awt.Font("Kohinoor Telugu", 1, 36)); // NOI18N
+        aboutUsLbl.setText("About Us");
+        pnlAboutUs.add(aboutUsLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, 40));
+
+        aboutUsDesLbl4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        aboutUsDesLbl4.setText("our user-friendly platform helps administrators organize babysitter ");
+        pnlAboutUs.add(aboutUsDesLbl4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 540, 20));
+
+        aboutUsDesLbl3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        aboutUsDesLbl3.setText("With features like efficient sorting, filtering, and search capabilities, ");
+        pnlAboutUs.add(aboutUsDesLbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 97, 560, -1));
+
+        aboutUsDesLbl2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        aboutUsDesLbl2.setText("simplify and streamline the management of babysitter information.");
+        pnlAboutUs.add(aboutUsDesLbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 540, 30));
+
+        aboutUsDesLbl1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        aboutUsDesLbl1.setText("The Babysitter Management System is designed to");
+        pnlAboutUs.add(aboutUsDesLbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 462, -1));
+
+        aboutUsDesLbl5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        aboutUsDesLbl5.setText("records, including experience, contact details, experience.");
+        pnlAboutUs.add(aboutUsDesLbl5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 530, 20));
+
+        whatWeDoLbl.setFont(new java.awt.Font("Kohinoor Telugu", 1, 36)); // NOI18N
+        whatWeDoLbl.setText("What we do");
+        pnlAboutUs.add(whatWeDoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 240, 30));
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel1.setText("Our system empowers admins to:");
+        pnlAboutUs.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 400, -1));
+
+        imageLblCeo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/IMG_6818.JPG"))); // NOI18N
+        imageLblCeo.setMaximumSize(new java.awt.Dimension(200, 200));
+        imageLblCeo.setMinimumSize(new java.awt.Dimension(200, 200));
+        imageLblCeo.setPreferredSize(new java.awt.Dimension(200, 200));
+        pnlAboutUs.add(imageLblCeo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 210, 280));
+
+        lblDesc.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblDesc.setText("1. Organize and update Babysitter Information:");
+        pnlAboutUs.add(lblDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 390, -1));
+
+        lblDes1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblDes1.setText("Keep track of babysitters' personal details");
+        pnlAboutUs.add(lblDes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 410, 30));
+
+        lblDes2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblDes2.setText("2. Search and Filter with ease: Quickly find babysitters by name, ID");
+        pnlAboutUs.add(lblDes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 297, 560, 30));
+
+        lblDes3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblDes3.setText("or experience using robust search and sorting features.");
+        pnlAboutUs.add(lblDes3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 327, 510, -1));
+
+        lblDes4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblDes4.setText("3. Maintain Accurate Records: Eliminate errors with built-in data validation tools");
+        pnlAboutUs.add(lblDes4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 660, 30));
+
+        visionLbl.setFont(new java.awt.Font("Kohinoor Telugu", 1, 36)); // NOI18N
+        visionLbl.setText("Our vision");
+        pnlAboutUs.add(visionLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 250, 40));
+
+        lblVision1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblVision1.setText("Our vision is to support admins in creating a streamlined, user-friendly");
+        pnlAboutUs.add(lblVision1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 580, -1));
+
+        lblVision2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblVision2.setText("environment where babysitter data is accessible, manageable and");
+        pnlAboutUs.add(lblVision2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 453, 560, 20));
+
+        lblVision3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblVision3.setText("well-organized. We aim to enhance the efficiency of childcare services");
+        pnlAboutUs.add(lblVision3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 580, 30));
+
+        lblVision4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblVision4.setText("through smart and relidable technology.");
+        pnlAboutUs.add(lblVision4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 450, -1));
+
+        ceoNameLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        ceoNameLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ceoNameLbl.setText("Ms. Aditi Verma (CEO)");
+        pnlAboutUs.add(ceoNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 210, 20));
+
+        memoryLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
+        memoryLbl.setText("M");
+        pnlAboutUs.add(memoryLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 60, 40));
+
+        memoryLbl1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        memoryLbl1.setText("emories");
+        pnlAboutUs.add(memoryLbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, 150, 20));
+
+        lblImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/babysitting.jpg"))); // NOI18N
+        pnlAboutUs.add(lblImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 440, 140, 140));
+
+        lblImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/IMG_6059.JPG"))); // NOI18N
+        pnlAboutUs.add(lblImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 140, 160));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 647));
@@ -949,12 +1062,14 @@ public class BabysitterManagement extends javax.swing.JFrame {
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(pnlLogInScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(pnlLogInScreen, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlLogInScreen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlLogInScreen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
     }
@@ -971,8 +1086,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
         // Add panels with unique identifiers
         getContentPane().add(pnlLoadingScreen, "LoadingScreen");
         getContentPane().add(pnlLogInScreen, "LoginScreen");
-        getContentPane().add(pnlHomeScreen, "MainScreen");
-        getContentPane().add(adminPnl, "BabysitterScreen");
+        getContentPane().add(pnlHomeScreen, "HomeScreen");
+        getContentPane().add(adminPnl, "ManageProfileScreen");
         getContentPane().add(pnlAboutUs, "AboutUsScreen");
 
         // Start with the loading screen
@@ -1027,8 +1142,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
 
             @Override
             protected void done() {
-
-                loadingLbl.setText("Load Complete!");
                 loadScreen("LoginScreen"); // Switch to login screen
             }
         };
@@ -1036,23 +1149,34 @@ public class BabysitterManagement extends javax.swing.JFrame {
     }
 
     /**
-     * Set the password and userName field empty AND load LoginScreen
+     * Displays a confirmation dialog for logout Clears fields and loads the
+     * login
      *
      * @param evt The event triggered when logout button is clicked
      */
 
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
-        passwordFld.setText("");
-        txtFldUserName.setText("");
-        loadScreen("LoginScreen"); // Load the main screen
+        int choice = JOptionPane.showConfirmDialog(
+                this,
+                "Are you sure you want to log out?",
+                "Confirm Logout",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (choice == JOptionPane.YES_OPTION) {
+            passwordFld.setText("");
+            txtFldUserName.setText("");
+            loadScreen("LoginScreen");
+        }
     }//GEN-LAST:event_logOutBtnActionPerformed
     /**
      * Load babysitter form Screen
      *
-     * @param evt The event triggered when Babysitter button is clicked
+     * @param evt The event triggered when Manage profile button is clicked
      */
     private void btnGoToFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToFormActionPerformed
-        loadScreen("BabysitterScreen"); //Load Babysitter screen 
+        loadScreen("ManageProfileScreen"); //Load form screen 
     }//GEN-LAST:event_btnGoToFormActionPerformed
 
     /**
@@ -1105,9 +1229,9 @@ public class BabysitterManagement extends javax.swing.JFrame {
             passwordFld.setBorder(createLineBorder(successColor));
 
         }
-        //load manScreen if no error occur
+        //load Home Screen if no error occur
         if (!hasError) {
-            loadScreen("MainScreen");
+            loadScreen("HomeScreen");
         }
     }//GEN-LAST:event_btnLogInActionPerformed
     /**
@@ -1135,7 +1259,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         );
         // Validate address
         isValid &= validateField(
-                txtFieldAddress, lblErrorMessageAddress, "Must contain alphabets and comma.",
+                txtFieldAddress, lblErrorMessageAddress, "Must contain alphabets and comma only.",
                 errorColor, successColor, ValidationUtil.isValidAddress(txtFieldAddress.getText())
         );
         // Validate Age
@@ -1157,7 +1281,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
                     errorColor, successColor, ValidationUtil.isValidExperience(experience)
             );
         } catch (NumberFormatException e) {
-            validateField(txtFieldExperience, lblErrorMessageExperience, "Must be 3 or greater than three.", errorColor, successColor, false);
+            validateField(txtFieldExperience, lblErrorMessageExperience, "Must be a valid number.", errorColor, successColor, false);
             isValid = false;
         }
         //Validate email
@@ -1181,14 +1305,14 @@ public class BabysitterManagement extends javax.swing.JFrame {
             // Check for duplicate Babysitter Id
             if (checkDuplicateBabysitter(newBabysitter)) {
                 txtFieldBabysitterId.setBorder(createLineBorder(errorColor));
-                showDialogBox("Baby sitter ID already exists.", "Duplicate Entry", JOptionPane.WARNING_MESSAGE);
+                showMessageBox("Baby sitter ID already exists.", "Duplicate Entry", JOptionPane.WARNING_MESSAGE);
             } else {
                 // Add the babysitter if no duplicate is found
                 babysitterList.add(newBabysitter);
                 clearBabysitterForm();
                 loadDetailsToTable(babysitterList);
 
-                showDialogBox("Babysitter added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                showMessageBox("Babysitter added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
             }
         }
 
@@ -1212,45 +1336,45 @@ public class BabysitterManagement extends javax.swing.JFrame {
         }
 
         // Validate Name
-        isValid &= validateField(txtFieldName, lblErrorMessageName, "Must contain only alphabets.",
+        isValid &= validateField(txtFieldName, lblErrorMessageName, "Must contain only alphabets",
                 errorColor, successColor, ValidationUtil.isValidName(txtFieldName.getText())
         );
 
         // Validate Contact
         isValid &= validateField(
-                txtFieldContact, lblErrorMessageContact, "Start with 98 and have 10 digits.",
+                txtFieldContact, lblErrorMessageContact, "Start with 98 and have 10 digits",
                 errorColor, successColor, ValidationUtil.isValidContact(txtFieldContact.getText())
         );
         // Validate address
         isValid &= validateField(
-                txtFieldAddress, lblErrorMessageAddress, "Must contain alphabets and comma.",
+                txtFieldAddress, lblErrorMessageAddress, "Contain only alphabets and comma",
                 errorColor, successColor, ValidationUtil.isValidAddress(txtFieldAddress.getText())
         );
         // Validate Age
         try {
             short age = Short.parseShort(txtFieldAge.getText().trim());
             isValid &= validateField(
-                    txtFieldAge, lblErrorMessageAge, "Must be between 21 and 45.",
+                    txtFieldAge, lblErrorMessageAge, "Must be between 21 and 45",
                     errorColor, successColor, ValidationUtil.isValidAge(age)
             );
         } catch (NumberFormatException e) {
-            validateField(txtFieldAge, lblErrorMessageAge, "Must be a valid number.", errorColor, successColor, false);
+            validateField(txtFieldAge, lblErrorMessageAge, "Must be a valid number", errorColor, successColor, false);
             isValid = false;
         }
         //validate experience
         try {
             int experience = Integer.parseInt(txtFieldExperience.getText().trim());
             isValid &= validateField(
-                    txtFieldExperience, lblErrorMessageExperience, "Must have atleast 1 year exp.",
+                    txtFieldExperience, lblErrorMessageExperience, "Must have atleast 1 year exp",
                     errorColor, successColor, ValidationUtil.isValidExperience(experience)
             );
         } catch (NumberFormatException e) {
-            validateField(txtFieldExperience, lblErrorMessageExperience, "Must be 3 or greater than three.", errorColor, successColor, false);
+            validateField(txtFieldExperience, lblErrorMessageExperience, "Must be 3 or greater than three", errorColor, successColor, false);
             isValid = false;
         }
         //Validate email
         isValid &= validateField(
-                txtFieldEmail, lblErrorMessageEmail, "Enter a valid email in the format: example@domain.com.",
+                txtFieldEmail, lblErrorMessageEmail, "Enter a valid email in the format: example@domain.com",
                 errorColor, successColor, ValidationUtil.isVaildEmail(txtFieldEmail.getText())
         );
         try {
@@ -1310,9 +1434,14 @@ public class BabysitterManagement extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_deleteBtnActionPerformed
-
+    /**
+     * Load Home Page
+     *
+     * @param evt Action event triggered when Home button is clicked
+     *
+     */
     private void mainScBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainScBtnActionPerformed
-        loadScreen("MainScreen");
+        loadScreen("HomeScreen");
     }//GEN-LAST:event_mainScBtnActionPerformed
     /**
      * Handles the mouse click event on the table to load the selected
@@ -1355,13 +1484,13 @@ public class BabysitterManagement extends javax.swing.JFrame {
         String searchValue = txtFldSearch.getText().trim();
 
         if (searchValue.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter a value to Search.", "Input Error", JOptionPane.ERROR_MESSAGE);
+            showMessageBox("Please enter a value to Search.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         List<BabysitterModel> searchResult = search.search(searchValue, babysitterList);
         if (searchResult.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
+            showMessageBox("No matches found.", "Search Result", JOptionPane.INFORMATION_MESSAGE);
         } else {
             LinkedList<BabysitterModel> searchBy = new LinkedList<>(searchResult);
             loadDetailsToTable(searchBy);
@@ -1379,7 +1508,7 @@ public class BabysitterManagement extends javax.swing.JFrame {
         String sortBy = ((String) cbSort.getSelectedItem()).trim();
 
         if (sortBy.equalsIgnoreCase("Sort By")) {
-            JOptionPane.showMessageDialog(this, "Please select a valid sorting option.", "Error", JOptionPane.ERROR_MESSAGE);
+            showMessageBox("Please select a valid sorting option.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (sortBy.equalsIgnoreCase("Experience(Ascending)")) {
@@ -1406,8 +1535,9 @@ public class BabysitterManagement extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cbSortActionPerformed
     /**
-     * Clear the text 'Search...'from search bar while search a babysitter 
-     * @param evt  the Action event triggered while search item is typed
+     * Clear the text 'Search...'from search bar while search a babysitter
+     *
+     * @param evt the Action event triggered while search item is typed
      */
     private void txtFldSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFldSearchKeyTyped
         if (txtFldSearch.getText().equals("Search...")) {
@@ -1416,18 +1546,20 @@ public class BabysitterManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFldSearchKeyTyped
     /**
      * load the About us screen
+     *
      * @param evt the Action event triggered by button aboutUsBtn in main screen
      */
     private void aboutUsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutUsBtnActionPerformed
         loadScreen("AboutUsScreen");
     }//GEN-LAST:event_aboutUsBtnActionPerformed
     /**
-     * load the mainScreen 
+     * load the mainScreen
+     *
      * @param evt the Action event triggered by button in about us screen
      */
-    private void adminPnlBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminPnlBtnActionPerformed
-        loadScreen("MainScreen");
-    }//GEN-LAST:event_adminPnlBtnActionPerformed
+    private void homeScreenBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeScreenBtnActionPerformed
+        loadScreen("HomeScreen");
+    }//GEN-LAST:event_homeScreenBtnActionPerformed
 
     /**
      * Populates the JTable with the current list of Babysitter records. Clears
@@ -1507,20 +1639,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
     }
 
     /**
-     * Displays a message dialog box with the given message, title, and type.
-     *
-     * @param message the message to display
-     * @param title the title of the dialog box
-     * @param messageType the type of message (e.g., information, warning, or
-     * error)
-     */
-    private void showDialogBox(String message, String title, int messageType) {
-        JOptionPane.showMessageDialog(this, message, title, messageType);
-    }
-
-    /**
-     * Clears all input fields in the babysitter form. Resets each field's value to
-     * an empty string.
+     * Clears all input fields in the babysitter form. Resets each field's value
+     * to an empty string.
      */
     private void clearBabysitterForm() {
         txtFieldBabysitterId.setText("");
@@ -1584,21 +1704,35 @@ public class BabysitterManagement extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutUsBtn;
+    private javax.swing.JLabel aboutUsDesLbl1;
+    private javax.swing.JLabel aboutUsDesLbl2;
+    private javax.swing.JLabel aboutUsDesLbl3;
+    private javax.swing.JLabel aboutUsDesLbl4;
+    private javax.swing.JLabel aboutUsDesLbl5;
+    private javax.swing.JLabel aboutUsLbl;
     private javax.swing.JButton addBtn;
     private javax.swing.JPanel adminPnl;
-    private javax.swing.JButton adminPnlBtn;
-    private javax.swing.JPanel adminWelcomePnl;
     private javax.swing.JButton btnGoToForm;
     private javax.swing.JButton btnLogIn;
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbSort;
+    private javax.swing.JLabel ceoNameLbl;
     private javax.swing.JButton deleteBtn;
+    private javax.swing.JButton homeScreenBtn;
+    private javax.swing.JPanel homeWelcomePnl;
     private javax.swing.JLabel imageLbl;
+    private javax.swing.JLabel imageLblCeo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblBabysitterId;
     private javax.swing.JLabel lblContact;
+    private javax.swing.JLabel lblDes1;
+    private javax.swing.JLabel lblDes2;
+    private javax.swing.JLabel lblDes3;
+    private javax.swing.JLabel lblDes4;
+    private javax.swing.JLabel lblDesc;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblErrorMessageAddress;
     private javax.swing.JLabel lblErrorMessageAge;
@@ -1611,22 +1745,29 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lblErrorUserName;
     private javax.swing.JLabel lblExperience;
     private javax.swing.JLabel lblForImageInLoginSc;
+    private javax.swing.JLabel lblImage1;
+    private javax.swing.JLabel lblImage2;
     private javax.swing.JLabel lblInfoContact;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblOurStoryImage;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhoneImage;
     private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lblToAddTitle;
     private javax.swing.JLabel lblUserName;
+    private javax.swing.JLabel lblVision1;
+    private javax.swing.JLabel lblVision2;
+    private javax.swing.JLabel lblVision3;
+    private javax.swing.JLabel lblVision4;
     private javax.swing.JLabel lblWelcomeAdmin;
     private javax.swing.JLabel loadingImageLbl;
     private javax.swing.JLabel loadingLbl;
     private javax.swing.JLabel loadingValueLbl;
     private javax.swing.JButton logOutBtn;
     private javax.swing.JButton mainScBtn;
+    private javax.swing.JLabel memoryLbl;
+    private javax.swing.JLabel memoryLbl1;
     private javax.swing.JPasswordField passwordFld;
     private javax.swing.JProgressBar pgBarSplashSc;
     private javax.swing.JPanel pnlAboutUs;
@@ -1651,6 +1792,8 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private javax.swing.JTextField txtFldSearch;
     private javax.swing.JTextField txtFldUserName;
     private javax.swing.JButton updateBtn;
+    private javax.swing.JLabel visionLbl;
+    private javax.swing.JLabel whatWeDoLbl;
     // End of variables declaration//GEN-END:variables
 
 }

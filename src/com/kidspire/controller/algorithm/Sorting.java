@@ -181,24 +181,24 @@ public class Sorting {
      */
     private List<BabysitterModel> merge(List<BabysitterModel> leftPart, List<BabysitterModel> rightPart, boolean isAsc) {
 
-        List<BabysitterModel> mergedResult = new ArrayList<>();
+        List<BabysitterModel> mergeResult = new ArrayList<>();
         int leftIndex = 0;
         int rightIndex = 0;
         while (leftIndex < leftPart.size() && rightIndex < rightPart.size()) {
             if (isAsc) {
                 if (leftPart.get(leftIndex).getBabysitterId() < rightPart.get(rightIndex).getBabysitterId()) {
-                    mergedResult.add(leftPart.get(leftIndex));
+                    mergeResult.add(leftPart.get(leftIndex));
                     leftIndex++;
                 } else {
-                    mergedResult.add(rightPart.get(rightIndex));
+                    mergeResult.add(rightPart.get(rightIndex));
                     rightIndex++;
                 }
             } else {
                 if (leftPart.get(leftIndex).getBabysitterId() > rightPart.get(rightIndex).getBabysitterId()) {
-                    mergedResult.add(leftPart.get(leftIndex));
+                    mergeResult.add(leftPart.get(leftIndex));
                     leftIndex++;
                 } else {
-                    mergedResult.add(rightPart.get(rightIndex));
+                    mergeResult.add(rightPart.get(rightIndex));
                     rightIndex++;
                 }
 
@@ -206,14 +206,14 @@ public class Sorting {
 
         }
         while (leftIndex < leftPart.size()) {
-            mergedResult.add(leftPart.get(leftIndex));
+            mergeResult.add(leftPart.get(leftIndex));
             leftIndex++;
         }
         while (rightIndex < rightPart.size()) {
-            mergedResult.add(rightPart.get(rightIndex));
+            mergeResult.add(rightPart.get(rightIndex));
             rightIndex++;
         }
-        return mergedResult;
+        return mergeResult;
     }
 
 }
