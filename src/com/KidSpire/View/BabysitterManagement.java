@@ -1109,9 +1109,9 @@ public class BabysitterManagement extends javax.swing.JFrame {
      * purposes.
      */
     private void initializeData() {
-        babysitterList.add(new BabysitterModel(23456, "Garima", (short) 26, "9854653250", 3, "Kamalpokhari", "garima@gmail.com"));
-        babysitterList.add(new BabysitterModel(23457, "Sunaina", (short) 24, "9875643210", 4, "Hattiban", "sunaina@gmail.com"));
-        babysitterList.add(new BabysitterModel(23458, "Bidhya", (short) 25, "9807654231", 5, "Baneshwor", "bidhya@gmail.com"));
+        babysitterList.add(new BabysitterModel(23455, "Garima", (short) 26, "9854653250", 3, "Kamalpokhari", "garima@gmail.com"));
+        babysitterList.add(new BabysitterModel(23451, "Sunaina", (short) 24, "9875643210", 4, "Hattiban", "sunaina@gmail.com"));
+        babysitterList.add(new BabysitterModel(23452, "Bidhya", (short) 25, "9807654231", 5, "Baneshwor", "bidhya@gmail.com"));
         loadDetailsToTable(babysitterList);
 
     }
@@ -1506,11 +1506,6 @@ public class BabysitterManagement extends javax.swing.JFrame {
     private void cbSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSortActionPerformed
 
         String sortBy = ((String) cbSort.getSelectedItem()).trim();
-
-        if (sortBy.equalsIgnoreCase("Sort By")) {
-            showMessageBox("Please select a valid sorting option.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
         if (sortBy.equalsIgnoreCase("Experience(Ascending)")) {
             sorting.insertionSortByExperience(babysitterList, true);
 
