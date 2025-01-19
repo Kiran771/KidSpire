@@ -12,12 +12,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
+ * @author kiransaud 
+ * 23048603
+ *
  * This class provides sorting algorithms for sorting babysitter data based on
  * ID, name, and experience using techniques such as Insertion Sort, Selection
  * Sort, and Merge Sort. It supports both ascending and descending order and
  * includes validation for the input data before sorting. babysitter
  *
- * @author kiransaud 23048603
  */
 public class Sorting {
 

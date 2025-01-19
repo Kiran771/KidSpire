@@ -17,6 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * @author kiransaud 
+ * 23048603
+ *
  * This class represents the Babysitter Management GUI, designed to manage
  * babysitter information It enables CRUD operations (Create, Read, Update,
  * Delete) for maintaining babysitter records. User login authentication
@@ -26,7 +29,6 @@ import javax.swing.table.DefaultTableModel;
  * the GUI. The system ensures efficient management of babysitter information
  * while maintaining data integrity.
  *
- * @author kiransaud 23048603
  */
 public class BabysitterManagement extends javax.swing.JFrame {
 

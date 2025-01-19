@@ -5,10 +5,13 @@
 package com.kidspire.model;
 
 /**
- * Represents a babysitter with details such as ID, name, age, contact, experience, address, and email.
- * Provides getter and setter methods for all fields.
- * Includes a toString method for concise representation of key details.
- * @author kiransaud 23048603
+ * @author kiransaud 
+ * 23048603
+ *
+ * Represents a babysitter with details such as ID, name, age, contact,
+ * experience, address, and email. Provides getter and setter methods for all
+ * fields. Includes a toString method for concise representation of key details.
+ *
  */
 public class BabysitterModel {
 
@@ -44,7 +47,6 @@ public class BabysitterModel {
         this.address = address;
         this.email = email;
     }
-
 
     /**
      * Retrieves the unique identifier of the babysitter.

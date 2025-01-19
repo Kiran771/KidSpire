@@ -7,8 +7,16 @@ package com.kidspire.util;
 import java.util.regex.Pattern;
 
 /**
- *
- * @author kiransaud
+ * @author kiransaud 
+ * 23048603
+ * 
+ * Utility class for validating various fields related to
+ * a Babysitter Management System. Provides methods to validate babysitter
+ * details such as ID, name, age, address, contact number, email, and
+ * experience. Implements regular expression patterns and range checks to ensure
+ * proper input validation. Includes helper methods for parsing and validating
+ * inputs to handle common formatting errors.
+ * 
  */
 public class ValidationUtil {
 
@@ -37,7 +45,6 @@ public class ValidationUtil {
      * @param babysitterId the babysitter ID to validate
      * @return true if the babysitter ID is valid else false
      */
-
     public static boolean isValidBabysitterId(String babysitterId) {
         return !isNullOrEmpty(babysitterId) && ID_PATTERN.matcher(babysitterId).matches();
     }
@@ -60,7 +67,6 @@ public class ValidationUtil {
      * @return true if the experience is between 1 and 20 (inclusive), false
      * otherwise
      */
-
     public static boolean isValidExperience(int experience) {
         return experience >= 1 && experience <= 20;
     }
@@ -71,7 +77,6 @@ public class ValidationUtil {
      * @param address the address of babysitter to validate
      * @return true if the address of babysitter is valid else false
      */
-
     public static boolean isValidAddress(String address) {
         return !isNullOrEmpty(address) && ADDRESS_PATTERN.matcher(address).matches();
     }
@@ -92,7 +97,6 @@ public class ValidationUtil {
      * @param email the address of babysitter to validate
      * @return true if the email of babysitter is valid else false
      */
-
     public static boolean isVaildEmail(String email) {
         return !isNullOrEmpty(email) && EMAIL_PATTERN.matcher(email).matches();
     }
@@ -104,7 +108,6 @@ public class ValidationUtil {
      * @param age the age of the babysitter to validate
      * @return true if the age is between 21 and 45 (inclusive), false otherwise
      */
-
     public static boolean isValidAge(short age) {
         return age >= 21 && age <= 45;
 

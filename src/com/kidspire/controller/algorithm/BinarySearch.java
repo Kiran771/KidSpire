@@ -10,11 +10,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * @author kiransaud 
+ * 23048603
+ * 
  * Performs binary search on BabysitterModel objects by name or experience. Ensures data
  * is sorted before searching using Sorting class methods. Handles null/empty
  * data and returns matching results.
  *
- * @author kiransaud 23048603
  */
 public class BinarySearch {
 
